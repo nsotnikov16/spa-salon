@@ -1,0 +1,30 @@
+.socials {
+  a {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  span {
+    display: none;
+  }
+  svg {
+    width: 15px;
+    height: 15px;
+  }
+  .whatsapp {
+    background-color: #64b161;
+  }
+  .telegram {
+    background: linear-gradient(180deg, #2aabee 0%, #229ed9 99.22%);
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .viber {
+    background: #7d3daf;
+  }
+}

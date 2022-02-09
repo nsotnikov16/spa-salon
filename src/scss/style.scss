@@ -2,22 +2,22 @@
   @font-face {
     font-family: $font_name;
     font-display: swap;
-    src: url(../fonts/#{$file_name}.woff2) format("woff2"), url(../fonts/#{$file_name}.woff) format("woff");
+    src: url(../fonts/#{$file_name}.woff2) format("woff2"),
+      url(../fonts/#{$file_name}.woff) format("woff");
     font-weight: #{$weight};
     font-style: #{$style};
   }
 }
 
-$green: #28cb5a;
-$main: #24284b;
-$background-main: #f1f7fa;
-
+$orange: #ffa360;
+$main: #fff;
+$background-main: #161717;
 @import "fonts";
 
 @import "normalize";
 
 body {
-  font-family: "Manrope";
+  font-family: "Gilroy";
 }
 .page {
   color: $main;
@@ -26,23 +26,36 @@ body {
 
   &__container {
     margin: 0 auto;
-    max-width: 1160px;
+    max-width: 1170px;
 
-    @media (max-width: 1159px) {
+    @media (max-width: 1220px) {
       padding: 0 40px;
     }
 
     @media (max-width: 768px) {
-      padding: 0 74px;
+      padding: 0 40px;
     }
 
     @media (max-width: 680px) {
-      padding: 0 20px;
+      padding: 0 15px;
     }
   }
 }
 
+/* Шапка */
+@import "header";
+
+/* Меню */
+@import "menu";
+
+/* Баннер */
+@import "banner";
 
 /* Попапы */
 @import "popups";
 
+/* Прочее */
+@import "other";
+
+/* Соц сети */
+@import "socials";

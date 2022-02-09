@@ -1,0 +1,59 @@
+.page {
+  &__container {
+  }
+}
+.banner {
+  margin: 241px 0 100px;
+  &__title {
+    font-size: 30px;
+    line-height: 39px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 54px;
+    line-height: 88px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__bottom {
+    max-width: 580px;
+    margin-top: 216px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 216px auto 0;
+  }
+
+  &__btn {
+    width: 211px;
+    height: 60px;
+    margin-right: 39px;
+  }
+
+  &__prices {
+    display: flex;
+    align-items: center;
+    p {
+      font-size: 18px;
+      line-height: 30px;
+      text-align: center;
+    }
+
+    .orange {
+      font-family: 'Prata';
+      font-size: 60px;
+      line-height: 60px;
+      text-align: center;
+      margin-left: 25px;
+    }
+  }
+}
+.orange {
+}
+.btn {
+}

@@ -9,7 +9,7 @@
     "build": "gulp build --build",
     "zip": "gulp deployZIP --build",
     "deploy": "gulp deployFTP --build",
-    "svgSprive": "gulp svgSpriteTask",
+    "svgSprite": "gulp svgSpriteTask",
     "gh-pages": "gh-pages -d dist"
   },
   "author": "FLS",

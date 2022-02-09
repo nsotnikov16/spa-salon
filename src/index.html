@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-	@@include('html/head.html',{
-	"title":"Главная"
-	})
-	<body>
-		@@include('html/header.html',{})
+@@include('html/head.html',{
+"title":"Главная"
+})
+
+<body>
+	<div class="page">
+		<div style="background-image: url('./img/banner.png');" class="cover">
+			@@include('html/header.html',{})
+			@@include('html/banner.html', {})
+		</div>
+
+
 		<main>
-			<img src="./img/woman.jpg" alt="woman">
 		</main>
 		@@include('html/footer.html',{})
-		<script src="js/app.js"></script>
-	</body>
+	</div>
+
+	<script src="js/app.js"></script>
+</body>
+
 </html>
