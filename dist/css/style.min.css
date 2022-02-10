@@ -641,13 +641,18 @@ body {
 }
 @media (max-width: 560px) {
   .header.open-menu .header__mobile .socials {
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-items: center;
+    gap: 18px 25px;
   }
 }
 @media (max-width: 560px) and (max-width: 374px) {
   .header.open-menu .header__mobile .socials {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+  .header.open-menu .header__mobile .socials a:last-child:not(:nth-child(even)) {
+    grid-column: initial !important;
   }
 }
 @media (max-width: 560px) {
@@ -655,30 +660,15 @@ body {
     width: 160px;
     height: 50px;
     border-radius: 30px;
-    margin-bottom: 18px;
     margin-right: 0;
   }
-  .header.open-menu .header__mobile .socials a:nth-child(odd) {
-    margin-right: 25px;
+  .header.open-menu .header__mobile .socials a:last-child:not(:nth-child(even)) {
+    grid-column: span 2;
   }
-}
-@media (max-width: 560px) and (max-width: 374px) {
-  .header.open-menu .header__mobile .socials a:nth-child(odd) {
-    margin-right: 0;
-  }
-}
-@media (max-width: 560px) {
-  .header.open-menu .header__mobile .socials a:last-child {
-    margin-right: 0;
-  }
-}
-@media (max-width: 560px) {
   .header.open-menu .header__mobile .socials a svg {
     width: 25px;
     height: 25px;
   }
-}
-@media (max-width: 560px) {
   .header.open-menu .header__mobile .socials a.telegram svg {
     width: 35px;
     height: 35px;
@@ -797,32 +787,81 @@ body {
 .banner {
   margin: 241px 0 100px;
 }
+@media (max-width: 1000px) {
+  .banner {
+    margin-top: calc(135px + 180.2 * (100vw - 375px) / 1000);
+  }
+}
 .banner__title {
+  font-family: "Prata";
   font-size: 30px;
   line-height: 39px;
   text-align: center;
   text-transform: uppercase;
   font-weight: 400;
+  margin-bottom: 30px;
+}
+@media (max-width: 1000px) {
+  .banner__title {
+    font-size: calc(18px + 20.4 * (100vw - 375px) / 1000);
+    line-height: calc(30px + 15.3 * (100vw - 375px) / 1000);
+    margin-bottom: calc(17px + 22.1 * (100vw - 375px) / 1000);
+  }
+}
+@media (max-width: 560px) {
+  .banner__title {
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 .banner__subtitle {
+  font-family: "Prata";
   font-weight: 400;
   font-size: 54px;
   line-height: 88px;
   text-align: center;
   text-transform: uppercase;
 }
+@media (max-width: 1000px) {
+  .banner__subtitle {
+    font-size: calc(36px + 30.6 * (100vw - 375px) / 1000);
+    line-height: calc(48px + 68 * (100vw - 375px) / 1000);
+  }
+}
 .banner__bottom {
   max-width: 580px;
   margin-top: 216px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin: 216px auto 0;
+}
+@media (max-width: 1000px) {
+  .banner__bottom {
+    margin-top: calc(31px + 314.5 * (100vw - 375px) / 1000);
+  }
+}
+@media (max-width: 560px) {
+  .banner__bottom {
+    display: grid;
+    grid-template-columns: max-content;
+    justify-items: center;
+    justify-content: center;
+    grid-auto-flow: dense;
+    gap: 15px;
+  }
 }
 .banner__btn {
   width: 211px;
   height: 60px;
   margin-right: 39px;
+}
+@media (max-width: 560px) {
+  .banner__btn {
+    margin-right: 0;
+    grid-row: 2/3;
+  }
 }
 .banner__prices {
   display: flex;
@@ -833,12 +872,118 @@ body {
   line-height: 30px;
   text-align: center;
 }
+@media (max-width: 1000px) {
+  .banner__prices p {
+    font-size: calc(14px + 6.8 * (100vw - 375px) / 1000);
+  }
+}
 .banner__prices .orange {
   font-family: "Prata";
   font-size: 60px;
   line-height: 60px;
   text-align: center;
   margin-left: 25px;
+}
+@media (max-width: 1000px) {
+  .banner__prices .orange {
+    font-size: calc(36px + 40.8 * (100vw - 375px) / 1000);
+  }
+}
+@media (max-width: 560px) {
+  .banner__prices .orange {
+    margin-left: 10px;
+  }
+}
+
+/* Девушки */
+.girls {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.girls__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.girls__name {
+  font-family: "Prata";
+  font-size: 24px;
+  line-height: 45px;
+}
+.girls__now {
+  font-size: 14px;
+  line-height: 24px;
+  text-align: right;
+  position: relative;
+}
+.girls__now::before {
+  position: absolute;
+  content: "";
+  top: 5px;
+  left: -23px;
+  background-image: url(../img/now.svg);
+  width: 14px;
+  height: 14px;
+}
+.girls__photo {
+  width: 370px;
+  display: block;
+  height: 430px;
+}
+.girls__photo img,
+.girls__photo source,
+.girls__photo picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+}
+.girls__bottom {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.girls__bottom > * {
+  margin-right: 15px;
+  font-size: 16px;
+  line-height: 24px;
+}
+.girls__bottom > *:last-child {
+  margin-right: 0;
+}
+.girls__labels {
+  display: grid;
+  grid-template-columns: max-content;
+  gap: 5px;
+}
+.girls__label {
+  margin-bottom: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 18px 8px;
+  overflow: hidden;
+  z-index: 1;
+}
+.girls__label:last-child {
+  margin-bottom: 0;
+}
+.girls__label::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  height: 40px;
+  width: 100%;
+  z-index: -1;
+  background-color: purple;
+}
+.girls__label span {
+  font-size: 16px;
+  line-height: 24px;
 }
 
 /* Попапы */
@@ -908,6 +1053,16 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+@media (max-width: 1000px) {
+  .cover {
+    background-position: top left;
+  }
+}
+@media (max-width: 560px) {
+  .cover {
+    background-position: 25%;
+  }
+}
 
 .btn {
   background: #ffa360;
@@ -937,6 +1092,55 @@ body {
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
+}
+
+.section {
+  margin: 0 0 80px;
+}
+.section:last-child {
+  margin: 0;
+}
+.section__title {
+  position: relative;
+  font-family: "Prata";
+  font-size: 36px;
+  line-height: 60px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  max-width: 500px;
+  margin: 0 auto 20px;
+}
+.section__subtitle {
+  max-width: 500px;
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 auto 35px;
+}
+
+.design1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+}
+.design1::before, .design1::after {
+  content: "";
+  width: 176px;
+  height: 50px;
+}
+.design1::before {
+  transform: translateX(-30%);
+  background-image: url(../img/design1_left.png);
+}
+.design1::after {
+  transform: translateX(30%);
+  background-image: url(../img/design1_right.png);
+}
+.design1 .section__title {
+  margin: 0;
 }
 
 /* Соц сети */

@@ -2,6 +2,12 @@
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
+  @media (max-width: 1000px) {
+    background-position: top left;
+  }
+  @media (max-width: 560px) {
+    background-position: 25%;
+  }
 }
 
 .btn {
@@ -33,5 +39,61 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 19px;
+  }
+}
+
+.section {
+  margin: 0 0 80px;
+  &:last-child {
+    margin: 0;
+  }
+
+  &__title {
+    position: relative;
+    font-family: "Prata";
+    font-size: 36px;
+    line-height: 60px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    max-width: 500px;
+    margin: 0 auto 20px;
+  }
+
+  &__subtitle {
+    max-width: 500px;
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0 auto 35px;
+  }
+}
+
+.design1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  
+  &::before,
+  &::after {
+    content: "";
+    width: 176px;
+    height: 50px;
+  }
+
+  &::before {
+    transform: translateX(-30%);
+    background-image: url(../img/design1_left.png);
+  }
+
+  &::after {
+    transform: translateX(30%);
+    background-image: url(../img/design1_right.png);
+  }
+
+  .section__title {
+    margin: 0;
   }
 }
