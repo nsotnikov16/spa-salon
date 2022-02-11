@@ -2,6 +2,15 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
   &__top {
     display: flex;
     justify-content: space-between;
@@ -9,10 +18,18 @@
     margin-bottom: 4px;
   }
 
+  &__girl {
+    min-width: 0;
+  }
+
   &__name {
     font-family: "Prata";
     font-size: 24px;
     line-height: 45px;
+    @media (max-width: 1220px) {
+      font-size: calc(20px + (4 + 4 * 0.7) * ((100vw - 375px) / 1220));
+      line-height: calc(35px + (10 + 10 * 0.7) * ((100vw - 375px) / 1220));
+    }
   }
 
   &__now {
@@ -20,6 +37,10 @@
     line-height: 24px;
     text-align: right;
     position: relative;
+    @media (max-width: 1220px) {
+      font-size: calc(12px + (2 + 2 * 0.7) * ((100vw - 375px) / 1220));
+      line-height: calc(20px + (4 + 4 * 0.7) * ((100vw - 375px) / 1220));
+    }
 
     &::before {
       position: absolute;
@@ -29,19 +50,44 @@
       background-image: url(../img/now.svg);
       width: 14px;
       height: 14px;
+
+      @media(max-width: 900px) {
+        top: 3px;
+      }
     }
   }
 
   &__photo {
-    width: 370px;
+    width: 100%;
     display: block;
     height: 430px;
+
+    @media (max-width: 1220px) {
+      height: calc(300px + (130 + 130 * 0.7) * ((100vw - 900px) / 1220));
+    }
+
+    @media (max-width: 900px) {
+      height: 430px;
+    }
+    @media (max-width: 899px) {
+      height: calc(290px + (140 + 140 * 0.7) * ((100vw - 560px) / 899));
+    }
+
+    @media (max-width: 560px) {
+      height: 550px;
+    }
+
+    @media (max-width: 559px) {
+      height: calc(400px + (150 + 150 * 0.7) * ((100vw - 375px) / 559));
+    }
+
     img,
     source,
     picture {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: top center;
       border-radius: 2px;
     }
   }
@@ -57,10 +103,22 @@
       &:last-child {
         margin-right: 0;
       }
+
+      @media (max-width: 1220px) {
+        font-size: calc(13px + (3 + 3 * 0.7) * ((100vw - 375px) / 1220));
+        margin-right: 12px;
+      }
     }
   }
 
+  &__swiper .swiper-slide {
+    position: relative;
+  }
+
   &__labels {
+    position: absolute;
+    top: 20px;
+    left: 0;
     display: grid;
     grid-template-columns: max-content;
     gap: 5px;
@@ -73,26 +131,106 @@
       margin-bottom: 0;
     }
 
+    &.purple {
+      div {
+        background-color: #793271;
+      }
+      &::before {
+        border-color: #793271 #793271 transparent;
+      }
+    }
+
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 8px 18px 8px;
-    overflow: hidden;
     z-index: 1;
 
-    &::before {
+    div {
       position: absolute;
-      content: "";
       top: 0;
       left: 0;
       height: 40px;
       width: 100%;
       z-index: -1;
-      background-color: purple;
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      top: 4px;
+      left: 87%;
+      width: 2px;
+      height: 0;
+      border-width: 14px 19px 18px;
+      border-style: solid;
+      transform: rotate(-90deg);
     }
     span {
       font-size: 16px;
       line-height: 24px;
+    }
+  }
+
+  &__more {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 2px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  &__camera {
+    background-image: url(../img/camera.svg);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 3px;
+  }
+
+  .swiper-pagination {
+    padding: 0 5px;
+    bottom: 5px;
+    display: flex;
+  }
+
+  .swiper-pagination-bullet {
+    position: relative;
+    background: transparent;
+    opacity: 1;
+    width: 100%;
+    height: 430px;
+    @media (max-width: 1150px) {
+      height: 4px;
+    }
+    border-radius: 0;
+    cursor: pointer;
+    &::after {
+      cursor: pointer;
+      position: absolute;
+      content: "";
+      bottom: 0;
+      left: 0;
+      height: 4px;
+      width: 100%;
+      background: rgba(196, 196, 196, 0.5);
+      opacity: 1;
+      z-index: -99;
+    }
+  }
+
+  .swiper-pagination-bullet-active {
+    &::after {
+      background: #8a3680;
+      height: 4px;
     }
   }
 }

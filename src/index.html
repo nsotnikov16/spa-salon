@@ -15,22 +15,38 @@
 			<section class="section">
 				<div class="page__container">
 					<div class="design1">
-						<h2 class="section__title">Наши <span class="orange">девушки</span></h2>
+						<h2 style="max-width: 500px;" class="section__title">Наши <span class="orange">девушки</span></h2>
 					</div>
 
-					<h3 class="section__subtitle">Двойное наслаждение, жаркие объятия девушки, ласковые руки, изгибы
+					<h3 style="max-width: 500px;" class="section__subtitle">Двойное наслаждение, жаркие объятия девушки, ласковые руки, изгибы
 						тела, страсть,
 						нежность - все это перевернет Ваше сознание и Вы погрузитесь в пучину экстаза! </h3>
 					@@include('html/girls.html', {})
 				</div>
 			</section>
 
-			<!--  -->
+			<!-- Популярные программы -->
+			<section class="section">
+				<div class="page__container">
+					<div class="design2">
+						<h2 style="max-width: 750px;" class="section__title">популярные программы<br> <span class="orange">эротического
+								массажа</span></span></h2>
+					</div>
+
+					<h3 style="max-width: 750px;" class="section__subtitle">Наша арт-директор разработала специально для Вас больше 25
+						оригинальных
+						программ эротического массажа <span class="orange">от 2500 до 80 000 рублей</span> с совершенно
+						различным наполнением.
+						Они смогут исполнить желания любого гостя. </h3>
+						@@include('html/programms.html', {})
+				</div>
+			</section>
 
 		</main>
 		@@include('html/footer.html',{})
 	</div>
-
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<script src="js/swiper-bundle.min.js"></script>
 	<script src="js/app.js"></script>
 </body>
 

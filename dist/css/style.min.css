@@ -901,22 +901,48 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
+@media (max-width: 900px) {
+  .girls {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .girls {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
 .girls__top {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 4px;
 }
+.girls__girl {
+  min-width: 0;
+}
 .girls__name {
   font-family: "Prata";
   font-size: 24px;
   line-height: 45px;
+}
+@media (max-width: 1220px) {
+  .girls__name {
+    font-size: calc(20px + 6.8 * (100vw - 375px) / 1220);
+    line-height: calc(35px + 17 * (100vw - 375px) / 1220);
+  }
 }
 .girls__now {
   font-size: 14px;
   line-height: 24px;
   text-align: right;
   position: relative;
+}
+@media (max-width: 1220px) {
+  .girls__now {
+    font-size: calc(12px + 3.4 * (100vw - 375px) / 1220);
+    line-height: calc(20px + 6.8 * (100vw - 375px) / 1220);
+  }
 }
 .girls__now::before {
   position: absolute;
@@ -927,10 +953,40 @@ body {
   width: 14px;
   height: 14px;
 }
+@media (max-width: 900px) {
+  .girls__now::before {
+    top: 3px;
+  }
+}
 .girls__photo {
-  width: 370px;
+  width: 100%;
   display: block;
   height: 430px;
+}
+@media (max-width: 1220px) {
+  .girls__photo {
+    height: calc(300px + 221 * (100vw - 900px) / 1220);
+  }
+}
+@media (max-width: 900px) {
+  .girls__photo {
+    height: 430px;
+  }
+}
+@media (max-width: 899px) {
+  .girls__photo {
+    height: calc(290px + 238 * (100vw - 560px) / 899);
+  }
+}
+@media (max-width: 560px) {
+  .girls__photo {
+    height: 550px;
+  }
+}
+@media (max-width: 559px) {
+  .girls__photo {
+    height: calc(400px + 255 * (100vw - 375px) / 559);
+  }
 }
 .girls__photo img,
 .girls__photo source,
@@ -938,6 +994,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   border-radius: 2px;
 }
 .girls__bottom {
@@ -953,7 +1010,19 @@ body {
 .girls__bottom > *:last-child {
   margin-right: 0;
 }
+@media (max-width: 1220px) {
+  .girls__bottom > * {
+    font-size: calc(13px + 5.1 * (100vw - 375px) / 1220);
+    margin-right: 12px;
+  }
+}
+.girls__swiper .swiper-slide {
+  position: relative;
+}
 .girls__labels {
+  position: absolute;
+  top: 20px;
+  left: 0;
   display: grid;
   grid-template-columns: max-content;
   gap: 5px;
@@ -965,25 +1034,97 @@ body {
   justify-content: center;
   align-items: center;
   padding: 8px 18px 8px;
-  overflow: hidden;
   z-index: 1;
 }
 .girls__label:last-child {
   margin-bottom: 0;
 }
-.girls__label::before {
+.girls__label.purple div {
+  background-color: #793271;
+}
+.girls__label.purple::before {
+  border-color: #793271 #793271 transparent;
+}
+.girls__label div {
   position: absolute;
-  content: "";
   top: 0;
   left: 0;
   height: 40px;
   width: 100%;
   z-index: -1;
-  background-color: purple;
+}
+.girls__label::before {
+  position: absolute;
+  content: "";
+  top: 4px;
+  left: 87%;
+  width: 2px;
+  height: 0;
+  border-width: 14px 19px 18px;
+  border-style: solid;
+  transform: rotate(-90deg);
 }
 .girls__label span {
   font-size: 16px;
   line-height: 24px;
+}
+.girls__more {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 2px;
+  font-size: 14px;
+  line-height: 24px;
+}
+.girls__camera {
+  background-image: url(../img/camera.svg);
+  background-size: 30px;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 3px;
+}
+.girls .swiper-pagination {
+  padding: 0 5px;
+  bottom: 5px;
+  display: flex;
+}
+.girls .swiper-pagination-bullet {
+  position: relative;
+  background: transparent;
+  opacity: 1;
+  width: 100%;
+  height: 430px;
+  border-radius: 0;
+  cursor: pointer;
+}
+@media (max-width: 1150px) {
+  .girls .swiper-pagination-bullet {
+    height: 4px;
+  }
+}
+.girls .swiper-pagination-bullet::after {
+  cursor: pointer;
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: rgba(196, 196, 196, 0.5);
+  opacity: 1;
+  z-index: -99;
+}
+.girls .swiper-pagination-bullet-active::after {
+  background: #8a3680;
+  height: 4px;
 }
 
 /* Попапы */
@@ -1108,28 +1249,65 @@ body {
   font-weight: 400;
   text-align: center;
   text-transform: uppercase;
-  max-width: 500px;
-  margin: 0 auto 20px;
+  margin: 0 auto 40px;
+}
+@media (max-width: 1220px) {
+  .section__title {
+    margin-bottom: calc(25px + 25.5 * (100vw - 375px) / 1220);
+  }
+}
+@media (max-width: 1000px) {
+  .section__title {
+    font-size: calc(30px + 10.2 * (100vw - 375px) / 1000);
+    line-height: calc(48px + 20.4 * (100vw - 375px) / 1000);
+  }
 }
 .section__subtitle {
-  max-width: 500px;
   font-size: 16px;
   line-height: 30px;
   font-weight: 400;
   text-align: center;
   margin: 0 auto 35px;
 }
+@media (max-width: 1220px) {
+  .section__subtitle {
+    margin-bottom: calc(25px + 17 * (100vw - 375px) / 1220);
+  }
+}
+@media (max-width: 1000px) {
+  .section__subtitle {
+    font-size: calc(14px + 3.4 * (100vw - 375px) / 1000);
+    line-height: calc(22px + 13.6 * (100vw - 375px) / 1000);
+  }
+}
 
-.design1 {
+.design1,
+.design2 {
   display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 0 auto 20px;
 }
-.design1::before, .design1::after {
+.design1::before, .design1::after,
+.design2::before,
+.design2::after {
   content: "";
   width: 176px;
   height: 50px;
+}
+@media (max-width: 800px) {
+  .design1::before, .design1::after,
+.design2::before,
+.design2::after {
+    content: initial;
+  }
+}
+.design1 .section__title,
+.design2 .section__title {
+  margin: 0;
+}
+
+.design1 {
+  justify-content: center;
+  align-items: center;
 }
 .design1::before {
   transform: translateX(-30%);
@@ -1139,8 +1317,19 @@ body {
   transform: translateX(30%);
   background-image: url(../img/design1_right.png);
 }
-.design1 .section__title {
-  margin: 0;
+
+.design2 {
+  justify-content: space-between;
+  align-items: center;
+}
+.design2::before {
+  background-image: url(../img/design2_left.png);
+}
+.design2::after {
+  background-image: url(../img/design2_right.png);
+}
+.design2 .section__title {
+  margin: 0 auto;
 }
 
 /* Соц сети */

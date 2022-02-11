@@ -23,3 +23,25 @@ const burger = document.querySelector('.menu__burger')
 headerMobile.append(headerMenuListCopy)
 headerMobile.append(headerRightCopy)
 burger.addEventListener('click', () => header.classList.toggle('open-menu'))
+
+const swipersCatalog = document.querySelectorAll('.girls__swiper')
+if (swipersCatalog.length > 0) {
+    swipersCatalog.forEach((swiper, ind) => {
+        swiper.classList.add(`girls__swiper_${ind + 1}`)
+        var swiperCatalog = new Swiper(`.girls__swiper_${ind + 1}`, {
+            loop: true,
+            pagination: {
+                el: `.girls__swiper_${ind + 1} .swiper-pagination`,
+                clickable: true,
+            },
+        })
+        if (window.innerWidth > 1150) {
+            const bullets = swiper.querySelectorAll('.swiper-pagination-bullet')
+            if (bullets.length > 0) bullets.forEach(bullet => {
+                const aria = bullet.getAttribute('aria-label')
+                const nextSlide = aria[aria.length - 1]
+                bullet.addEventListener('mouseenter', () => { swiperCatalog.slideTo(nextSlide) })
+            })
+        }
+    })
+}
