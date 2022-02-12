@@ -45,3 +45,10 @@ if (swipersCatalog.length > 0) {
         }
     })
 }
+
+
+/* Спойлеры */
+const spoilers = document.querySelectorAll('.spoiler')
+if (spoilers.length > 0) spoilers.forEach(spoiler => {
+    spoiler.querySelector('.spoiler__top').addEventListener('click', () => spoiler.classList.toggle('open'))
+})

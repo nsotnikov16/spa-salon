@@ -115,61 +115,7 @@
     position: relative;
   }
 
-  &__labels {
-    position: absolute;
-    top: 20px;
-    left: 0;
-    display: grid;
-    grid-template-columns: max-content;
-    gap: 5px;
-  }
-
-  &__label {
-    margin-bottom: 10px;
-    position: relative;
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    &.purple {
-      div {
-        background-color: #793271;
-      }
-      &::before {
-        border-color: #793271 #793271 transparent;
-      }
-    }
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 18px 8px;
-    z-index: 1;
-
-    div {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 40px;
-      width: 100%;
-      z-index: -1;
-    }
-    &::before {
-      position: absolute;
-      content: "";
-      top: 4px;
-      left: 87%;
-      width: 2px;
-      height: 0;
-      border-width: 14px 19px 18px;
-      border-style: solid;
-      transform: rotate(-90deg);
-    }
-    span {
-      font-size: 16px;
-      line-height: 24px;
-    }
-  }
+  
 
   &__more {
     display: flex;

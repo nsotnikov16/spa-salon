@@ -41,7 +41,8 @@ body {
     }
   }
 }
-
+/* Соц сети */
+@import "socials";
 /* Шапка */
 @import "header";
 
@@ -54,11 +55,20 @@ body {
 /* Девушки */
 @import "girls";
 
+/* Программы */
+@import "programms";
+
 /* Попапы */
 @import "popups";
 
 /* Прочее */
 @import "other";
 
-/* Соц сети */
-@import "socials";
+/* Лейблы */
+@import "labels";
+
+/* Спойлеры */
+@import "spoilers";
+
+/* Контент */
+@import "content";

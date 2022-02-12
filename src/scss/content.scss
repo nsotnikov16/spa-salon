@@ -1,0 +1,45 @@
+.content {
+  p {
+    font-size: 16px;
+    line-height: 24px;
+    opacity: 0.75;
+    margin-bottom: 15px;
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+  }
+  ul {
+
+    &.col-2 {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        gap: 5px 7%;
+    }
+  }
+
+  li {
+    position: relative;
+    font-size: 16px;
+    line-height: 32px;
+    color: rgba(255, 255, 255, 0.7);
+    padding-left: 17px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 5px;
+      height: 5px;
+      background-color: $orange;
+      top: 12px;
+      left: 0;
+      border-radius: 50%;
+    }
+  }
+  hr {
+      margin: 25px 0;
+      background-color: $orange;
+      color: $orange;
+      border: 1px solid $orange;
+      opacity: 0.5;
+  }
+}
