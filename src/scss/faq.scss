@@ -1,0 +1,22 @@
+.faq {
+  &__item {
+    overflow: hidden;
+    margin-bottom: 15px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__question {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 30px;
+    @media(max-width: 580px) {
+        line-height: 24px;
+    }
+  }
+
+  .spoiler__bottom-content {
+    padding-top: 0;
+  }
+}

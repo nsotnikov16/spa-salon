@@ -19,6 +19,9 @@ $background-main: #161717;
 body {
   font-family: "Gilroy";
 }
+main {
+  margin-bottom: 100px;
+}
 .page {
   color: $main;
   background-color: $background-main;
@@ -41,6 +44,9 @@ body {
     }
   }
 }
+
+/* Спойлеры */
+@import "spoilers";
 /* Контент */
 @import "content";
 
@@ -62,6 +68,9 @@ body {
 /* Программы */
 @import "programms";
 
+/* FAQ */
+@import "faq";
+
 /* Попапы */
 @import "popups";
 
@@ -70,6 +79,3 @@ body {
 
 /* Лейблы */
 @import "labels";
-
-/* Спойлеры */
-@import "spoilers";
