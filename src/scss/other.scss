@@ -23,6 +23,18 @@
   line-height: 16px;
   font-weight: 700;
   text-align: center;
+
+  &.btn_girls {
+    max-width: 250px;
+    height: 60px;
+    margin: 55px auto 0;
+  }
+
+  &.btn_programms {
+    max-width: 250px;
+    height: 60px;
+    margin: 30px auto 0;
+  }
 }
 
 .orange {

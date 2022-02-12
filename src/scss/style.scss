@@ -41,8 +41,12 @@ body {
     }
   }
 }
+/* Контент */
+@import "content";
+
 /* Соц сети */
 @import "socials";
+
 /* Шапка */
 @import "header";
 
@@ -69,6 +73,3 @@ body {
 
 /* Спойлеры */
 @import "spoilers";
-
-/* Контент */
-@import "content";
