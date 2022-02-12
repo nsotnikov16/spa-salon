@@ -3,7 +3,7 @@
   }
 }
 .banner {
-  margin: 241px 0 100px;
+  padding: 241px 0 100px;
   @media (max-width: 1000px) {
     margin-top: calc(135px + (106 + 106 * 0.7) * ((100vw - 375px) / 1000));
   }

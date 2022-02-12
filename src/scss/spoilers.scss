@@ -1,6 +1,9 @@
 .spoiler {
   &.open {
     .spoiler__top-right {
+      @media (max-width: 1119px) {
+        transform: rotate(180deg) translateY(6px);
+      }
       transform: rotate(180deg);
       span {
         &:first-child {
@@ -87,15 +90,15 @@
       border-radius: 3px;
 
       &:first-child {
-        transform: rotate(90deg) translateY(-8px);
+        transform: rotate(90deg) translateY(-7px);
       }
 
       &:last-child {
         transform: translateX(-8px);
       }
     }
-    @media(max-width: 1119px) {
-        transform: translateY(-6px);
+    @media (max-width: 1119px) {
+      transform: rotate(0) translateY(-6px);
     }
   }
 

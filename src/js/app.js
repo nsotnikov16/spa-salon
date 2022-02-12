@@ -52,3 +52,31 @@ const spoilers = document.querySelectorAll('.spoiler')
 if (spoilers.length > 0) spoilers.forEach(spoiler => {
     spoiler.querySelector('.spoiler__top').addEventListener('click', () => spoiler.classList.toggle('open'))
 })
+
+/* Достоинства свайпер */
+var swiperAdvantageThumbs = new Swiper(".advantage-swiper-thumbs", {
+    spaceBetween: 10,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
+    breakpoints: {
+        1000: {
+            spaceBetween: 10,
+        },
+        580: {
+            spaceBetween: 8,
+        }
+    },
+});
+var swiperAdvantage = new Swiper(".advantage-swiper", {
+    spaceBetween: 10,
+    loop: true,
+    thumbs: {
+        swiper: swiperAdvantageThumbs,
+    },
+    navigation: {
+        nextEl: '.advantage__swiper .swiper-button-next',
+        prevEl: '.advantage__swiper .swiper-button-prev',
+    },
+})
+
