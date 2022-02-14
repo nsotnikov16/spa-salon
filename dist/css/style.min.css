@@ -455,6 +455,76 @@ main {
   }
 }
 
+/* Хлебные крошки */
+.breadcrumbs {
+  margin-bottom: 56px;
+}
+.breadcrumbs hr {
+  border: 0.5px solid #ffa360;
+  margin: 20px 0 35px;
+  opacity: 0.5;
+  height: 0;
+}
+@media (max-width: 580px) {
+  .breadcrumbs hr {
+    margin: 20px 0;
+  }
+}
+@media (max-width: 580px) {
+  .breadcrumbs {
+    margin-bottom: 44px;
+  }
+}
+.breadcrumbs__list {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+@media (max-width: 580px) {
+  .breadcrumbs__list {
+    justify-content: start;
+    width: 100vw;
+    overflow: auto;
+  }
+}
+.breadcrumbs__item {
+  margin-right: 35px;
+  position: relative;
+}
+.breadcrumbs__item:last-child {
+  margin-right: 0;
+}
+.breadcrumbs__item:last-child::after {
+  content: initial;
+}
+.breadcrumbs__item::after {
+  content: "";
+  top: 8px;
+  right: -23px;
+  width: 10px;
+  height: 6px;
+  position: absolute;
+  background-image: url(../img/breadcrumbs_arrow.svg);
+  background-repeat: no-repeat;
+  background-size: 10px 6px;
+}
+.breadcrumbs__link {
+  font-size: 12px;
+  line-height: 14px;
+  white-space: nowrap;
+}
+.breadcrumbs__last {
+  font-size: 12px;
+  line-height: 14px;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+@media (max-width: 580px) {
+  .breadcrumbs .page__container {
+    width: 100vw;
+  }
+}
+
 /* Прочее */
 .cover {
   background-position: top center;
