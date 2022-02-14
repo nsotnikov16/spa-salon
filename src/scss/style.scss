@@ -45,6 +45,12 @@ main {
   }
 }
 
+/* Прочее */
+@import "other";
+
+/* Лейблы */
+@import "labels";
+
 /* Спойлеры */
 @import "spoilers";
 /* Контент */
@@ -74,11 +80,8 @@ main {
 /* Достоинства */
 @import "advantage";
 
+/* Подвал */
+@import "footer";
+
 /* Попапы */
 @import "popups";
-
-/* Прочее */
-@import "other";
-
-/* Лейблы */
-@import "labels";

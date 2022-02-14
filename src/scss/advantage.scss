@@ -3,15 +3,30 @@
     display: grid;
     grid-template-columns: max-content 1fr;
     gap: 60px;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+    @media(max-width: 580px) {
+      gap: 30px;
+    }
   }
 
   hr {
     margin: 50px 0;
     border: 1px solid $orange;
+    @media (max-width: 650px) {
+      display: none;
+    }
   }
   &__swiper {
+    min-width: 0;
     width: 410px;
     position: relative;
+    @media (max-width: 480px) {
+      width: 100%;
+    }
     .swiper-button-next,
     .swiper-button-prev {
       top: 43%;
@@ -23,14 +38,23 @@
 
     .swiper-button-next {
       right: -35px;
+      @media (max-width: 480px) {
+        right: 5px;
+      }
     }
 
     .swiper-button-prev {
       left: -35px;
+      @media (max-width: 480px) {
+        left: 5px;
+      }
     }
 
     .advantage-swiper {
       height: 410px;
+      @media (max-width: 480px) {
+        height: auto;
+      }
       .swiper-slide {
         img,
         source,
@@ -59,32 +83,49 @@
         }
       }
       .swiper-slide-thumb-active {
-          opacity: 1;
+        opacity: 1;
       }
     }
   }
 
   &__description {
     padding: 15px;
+    @media(max-width: 1024px) {
+      padding: 0;
+    }
     h3 {
       font-family: "Prata";
       font-weight: 400;
       font-size: 30px;
       line-height: 60px;
+      @media (max-width: 1024px) {
+        font-size: calc(24px + (6 + 6 * 0.7) * ((100vw - 375px) / 1220));
+        line-height: calc(30px + (30 + 30 * 0.7) * ((100vw - 375px) / 1220));
+      }
     }
     p {
       opacity: 0.75;
       font-size: 18px;
       line-height: 28px;
       margin-bottom: 8px;
+      @media (max-width: 1220px) {
+        font-size: calc(14px + (4 + 4 * 0.7) * ((100vw - 375px) / 1220));
+        line-height: calc(22px + (4 + 4 * 0.7) * ((100vw - 375px) / 1220));
+      }
     }
   }
 
   &__cards {
     display: grid;
-    grid-template-columns: repeat(3, 300px);
+    grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
-    gap: 30px;
+    gap: 30px 6%;
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 650px) {
+      display: none;
+    }
   }
 
   &__card {
