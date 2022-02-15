@@ -24,6 +24,8 @@ headerMobile.append(headerMenuListCopy)
 headerMobile.append(headerRightCopy)
 burger.addEventListener('click', () => header.classList.toggle('open-menu'))
 
+let swipers = [];
+
 const swipersCatalog = document.querySelectorAll('.girls__swiper')
 if (swipersCatalog.length > 0) {
     swipersCatalog.forEach((swiper, ind) => {
@@ -42,13 +44,83 @@ if (swipersCatalog.length > 0) {
                 const nextSlide = aria[aria.length - 1]
                 bullet.addEventListener('mouseenter', () => { swiperCatalog.slideTo(nextSlide) })
             })
+            swipers.push({ swiper: swiperCatalog, className: `.girls__swiper_${ind + 1}`, bulletsLength: bullets.length })
         }
+
+
     })
 }
 
+function setListenerBullets(swipers) {
+    swipers.forEach(({ swiper, bulletsLength, className }) => {
+        if (window.innerWidth > 1150 && bulletsLength == 0) {
+            const bullets = document.querySelectorAll(`${className} .swiper-pagination-bullet`)
+            if (bullets.length > 0) bullets.forEach(bullet => {
+                const aria = bullet.getAttribute('aria-label')
+                const nextSlide = aria[aria.length - 1]
+                bullet.addEventListener('mouseenter', () => { swiper.slideTo(nextSlide) })
+            })
+        }
+    })
+}
 
 /* Спойлеры */
 const spoilers = document.querySelectorAll('.spoiler')
 if (spoilers.length > 0) spoilers.forEach(spoiler => {
     spoiler.querySelector('.spoiler__top').addEventListener('click', () => spoiler.classList.toggle('open'))
 })
+
+/* Достоинства свайпер */
+var swiperAdvantageThumbs = new Swiper(".advantage-swiper-thumbs", {
+    spaceBetween: 10,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
+    breakpoints: {
+        1000: {
+            spaceBetween: 10,
+        },
+        580: {
+            spaceBetween: 8,
+        }
+    },
+});
+var swiperAdvantage = new Swiper(".advantage-swiper", {
+    spaceBetween: 10,
+    loop: true,
+    thumbs: {
+        swiper: swiperAdvantageThumbs,
+    },
+    navigation: {
+        nextEl: '.advantage__swiper .swiper-button-next',
+        prevEl: '.advantage__swiper .swiper-button-prev',
+    },
+})
+
+// Табы
+const tabsBlock = document.querySelector('.tabs')
+if (tabsBlock) {
+    const labels = tabsBlock.querySelectorAll('.tabs__label')
+    const inputs = tabsBlock.querySelectorAll('.tabs__label input')
+    const tabs = tabsBlock.querySelectorAll('.tabs__tab')
+    const spoiler = tabsBlock.querySelector('.tabs__spoiler')
+    inputs.forEach(input => {
+        const label = tabsBlock.querySelector(`.tabs__label[for="${input.id}"]`)
+        const span = label.querySelector('span')
+        const tab = tabsBlock.querySelector(`.tabs__tab#${input.id}`)
+        if (input.checked) {
+            label.classList.add('active')
+            tab.classList.add('active')
+            spoiler.textContent = span.textContent
+            setTimeout(() => setListenerBullets(swipers), 100)
+        }
+        input.addEventListener('click', () => {
+            labels.forEach(item => item.classList.remove('active'))
+            tabs.forEach(item => item.classList.remove('active'))
+            label.classList.add('active')
+            tab.classList.add('active')
+            spoiler.textContent = span.textContent
+            setTimeout(() => setListenerBullets(swipers), 100)
+        })
+    })
+}
