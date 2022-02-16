@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/head.html',{
+"title":"Программы эротического массажа"
+})
+
+<body>
+    <div class="page">
+
+        @@include('html/header.html',{})
+        @@include('html/breadcrumbs.html', {})
+        <main>
+            <section class="section">
+                <div class="page__container">
+                    <h1 class="section__title">
+                        Программы <br>
+                        <span class="orange">Эротического массажа</span>
+                    </h1>
+                    <h3 style="max-width: 750px;" class="section__subtitle">
+                        Мы разработали специально для Вас больше <span class="orange">20 оригинальных программ</span>
+                        эротического массажа и
+                        дополнений от <span class="orange">2 000 до 32 000 рублей</span> с совершенно различным
+                        наполнением. Они смогут исполнить
+                        желание любого гостя.</h3>
+
+                    <div class="tabs">
+                        <div class="tabs__spoiler"><span></span></div>
+                        <div class="tabs__controls">
+                            <label for="all" class="tabs__label btn">
+                                <input checked type="radio" name="tabs" id="all">
+                                <span>Все программы</span>
+                            </label>
+                            <label for="popular" class="tabs__label btn">
+                                <input type="radio" name="tabs" id="popular">
+                                <span>Популярные</span>
+                            </label>
+                            <label for="vip" class="tabs__label btn">
+                                <input type="radio" name="tabs" id="vip">
+                                <span>VIP Программы</span>
+                            </label>
+                            <label for="two" class="tabs__label btn">
+                                <input type="radio" name="tabs" id="two">
+                                <span>2 девушки</span>
+                            </label>
+                        </div>
+                        <div class="tabs__content">
+                            <div id="all" class="tabs__tab">
+                                @@include('html/programms.html', {})
+                            </div>
+                            <div id="popular" class="tabs__tab">
+                                @@include('html/programms.html', {})
+                            </div>
+                            <div id="vip" class="tabs__tab">
+                                @@include('html/programms.html', {})
+                            </div>
+                            <div id="two" class="tabs__tab">
+                                @@include('html/programms.html', {})
+                            </div>
+                        </div>
+            </section>
+        </main>
+        @@include('html/footer.html',{})
+    </div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

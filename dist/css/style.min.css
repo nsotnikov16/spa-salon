@@ -426,6 +426,10 @@ body {
   font-family: "Gilroy";
 }
 
+h1 {
+  font-weight: 400;
+}
+
 main {
   margin-bottom: 100px;
 }
@@ -452,6 +456,21 @@ main {
 @media (max-width: 680px) {
   .page__container {
     padding: 0 15px;
+  }
+}
+.page__title {
+  font-size: 54px;
+  line-height: 88px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Prata";
+  font-weight: 400;
+  margin: 0 auto 25px;
+}
+@media (max-width: 1220px) {
+  .page__title {
+    font-size: calc(48px + 10.2 * (100vw - 375px) / 1220);
+    line-height: calc(60px + 30.6 * (100vw - 375px) / 1220);
   }
 }
 
@@ -644,6 +663,7 @@ main {
   content: "";
   width: 176px;
   height: 50px;
+  background-size: cover;
 }
 @media (max-width: 800px) {
   .design1::before, .design1::after,
@@ -1094,6 +1114,7 @@ main {
   line-height: 32px;
   color: rgba(255, 255, 255, 0.7);
   padding-left: 17px;
+  margin-bottom: 8px;
 }
 .content li::before {
   position: absolute;
@@ -1771,6 +1792,177 @@ main {
   height: 4px;
 }
 
+/* Элемент детально */
+.detail {
+  margin-bottom: 125px;
+}
+@media (min-width: 1024px) {
+  .detail.detail_programm .detail__container {
+    grid-template-rows: repeat(auto-fit, 50px);
+  }
+}
+@media (max-width: 580px) {
+  .detail {
+    margin-bottom: 80px;
+  }
+}
+.detail__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(auto-fit, 110px);
+  gap: 30px 6%;
+}
+@media (max-width: 1023px) {
+  .detail__container {
+    grid-template-columns: 1fr;
+    grid-template-rows: initial;
+  }
+}
+.detail__left {
+  min-width: 0;
+  grid-row: 1/3;
+  max-height: 700px;
+}
+@media (max-width: 1023px) {
+  .detail__left {
+    grid-row: 2/3;
+    max-width: 60%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 480px) {
+  .detail__left {
+    max-width: initial;
+    margin: 0;
+  }
+}
+.detail__left .swiper-slide img,
+.detail__left .swiper-slide picture,
+.detail__left .swiper-slide source {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.detail__left .swiper-pagination {
+  display: none;
+}
+@media (max-width: 480px) {
+  .detail__left .swiper-pagination {
+    display: block;
+    position: initial;
+    padding-top: 10px;
+  }
+}
+.detail__left .swiper-pagination .swiper-pagination-bullet {
+  background: #fff;
+  opacity: 0.5;
+}
+.detail__left .swiper-pagination .swiper-pagination-bullet-active {
+  background: #ffa360;
+  opacity: 1;
+}
+.detail .girl__thumbs {
+  margin-top: 20px;
+  padding: 0 20px;
+  position: relative;
+}
+.detail .girl__thumbs .swiper-button-next::after,
+.detail .girl__thumbs .swiper-button-prev::after {
+  font-size: 20px;
+  color: white;
+}
+.detail .girl__thumbs .swiper-button-next {
+  right: -8px;
+}
+.detail .girl__thumbs .swiper-button-prev {
+  left: -8px;
+}
+@media (max-width: 480px) {
+  .detail .girl__thumbs {
+    display: none;
+  }
+}
+.detail__head {
+  grid-column: 2/3;
+  border-bottom: 1px solid #ffa360;
+}
+@media (max-width: 1023px) {
+  .detail__head {
+    grid-row: 1/2;
+    grid-column: initial;
+    padding-bottom: 20px;
+  }
+}
+.detail__description {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+@media (max-width: 1023px) {
+  .detail__description {
+    grid-row: 3/4;
+    grid-column: initial;
+  }
+}
+.detail .labels {
+  z-index: 10;
+}
+.detail .socials {
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+@media (max-width: 1023px) {
+  .detail .socials {
+    justify-content: center;
+  }
+}
+@media (max-width: 580px) {
+  .detail .socials {
+    grid-template-columns: repeat(auto-fit, 140px);
+  }
+  .detail .socials a {
+    height: 45px;
+  }
+}
+@media (max-width: 480px) {
+  .detail .socials {
+    justify-content: initial;
+    margin-bottom: 30px;
+  }
+}
+.detail .girls__name {
+  font-size: 54px;
+  text-align: center;
+  text-transform: uppercase;
+}
+@media (max-width: 580px) {
+  .detail .girls__name {
+    font-size: 28px;
+  }
+}
+@media (max-width: 415px) {
+  .detail .girls__name {
+    font-size: 24px;
+  }
+}
+.detail .girls__top {
+  align-items: flex-start;
+}
+.detail__programm-img {
+  position: relative;
+}
+.detail__programm-img img,
+.detail__programm-img source,
+.detail__programm-img picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.detail .programms__specifications svg {
+  fill: #ffa360 !important;
+}
+
 /* Программы */
 .programms__programm {
   margin-bottom: 10px;
@@ -1829,6 +2021,7 @@ main {
 .programms__labels {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 @media (max-width: 1180px) {
   .programms__labels {

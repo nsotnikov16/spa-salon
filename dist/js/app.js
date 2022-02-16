@@ -136,12 +136,12 @@ if (tabsBlock) {
 /* Девушка детально */
 var swiperGirlsThumbs = new Swiper(".swiper-girl-thumbs", {
     spaceBetween: 8,
-    slidesPerView: 4,
+    slidesPerView: 6,
     freeMode: true,
     watchSlidesProgress: true,
     navigation: {
-        nextEl: '.swiper-girl-thumbs .swiper-button-next',
-        prevEl: '.swiper-girl-thumbs .swiper-button-prev',
+        nextEl: '.girl__thumbs .swiper-button-next',
+        prevEl: '.girl__thumbs .swiper-button-prev',
     },
 
 });

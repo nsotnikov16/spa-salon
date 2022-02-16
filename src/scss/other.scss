@@ -111,6 +111,7 @@
     content: "";
     width: 176px;
     height: 50px;
+    background-size: cover;
 
     @media (max-width: 800px) {
       content: initial;
@@ -163,3 +164,5 @@
 .viber {
   background: #7d3daf;
 }
+
+

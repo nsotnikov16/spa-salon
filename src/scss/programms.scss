@@ -55,6 +55,7 @@
   &__labels {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 
     @media (max-width: 1180px) {
       justify-self: end;

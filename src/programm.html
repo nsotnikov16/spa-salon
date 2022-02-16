@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/head.html',{
+"title":"Тайская страсть"
+})
+
+<body>
+    <div class="page">
+
+        @@include('html/header.html',{})
+        @@include('html/breadcrumbs.html', {})
+        <main>
+            <section class="section">
+                <div class="page__container">
+                    <h1 style="max-width: 750px;" class="page__title"><span class="orange">Тайская</span> СТРАСТЬ
+                    </h1>
+                    <ul style="justify-content: center; padding-bottom: 30px;" class="programms__labels">
+
+                        <li class="programms__label hit">
+                            <svg>
+                                <use href="./img/icons/icons.svg#hit"></use>
+                            </svg>
+                            <span>HIT</span>
+                        </li>
+                        <li class="programms__label vip">
+                            <svg>
+                                <use href="./img/icons/icons.svg#hit"></use>
+                            </svg>
+                            <span>VIP</span>
+                        </li>
+                    </ul>
+                    @@include('html/programm.html', {})
+                </div>
+            </section>
+            <section class="section">
+                <div class="page__container">
+                    <h2 style="max-width: 750px;" class="section__title">Другие <span class="orange">программы</span>
+                    </h2>
+                    @@include('html/programms.html', {})
+                    <a href="#" class="btn btn_programms">Все программы</a>
+                </div>
+            </section>
+        </main>
+        @@include('html/footer.html',{})
+    </div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
