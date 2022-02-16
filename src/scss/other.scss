@@ -35,6 +35,12 @@
     height: 60px;
     margin: 30px auto 0;
   }
+
+  &:hover:not(.tabs__label) {
+    border: 1px solid #ffa360;
+    background: #171414;
+    color: white;
+  }
 }
 
 .orange {

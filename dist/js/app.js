@@ -103,7 +103,13 @@ if (tabsBlock) {
     const labels = tabsBlock.querySelectorAll('.tabs__label')
     const inputs = tabsBlock.querySelectorAll('.tabs__label input')
     const tabs = tabsBlock.querySelectorAll('.tabs__tab')
-    const spoiler = tabsBlock.querySelector('.tabs__spoiler')
+    const spoiler = tabsBlock.querySelector('.tabs__spoiler span')
+    console.log(labels.length)
+    if (labels.length > 2) {
+        tabsBlock.classList.add('with_spoiler')
+        spoiler.parentNode.addEventListener('click', () => tabsBlock.classList.toggle('open'))
+    }
+
     inputs.forEach(input => {
         const label = tabsBlock.querySelector(`.tabs__label[for="${input.id}"]`)
         const span = label.querySelector('span')
@@ -121,6 +127,32 @@ if (tabsBlock) {
             tab.classList.add('active')
             spoiler.textContent = span.textContent
             setTimeout(() => setListenerBullets(swipers), 100)
+            if (tabsBlock.classList.contains('open')) tabsBlock.classList.remove('open')
         })
     })
 }
+
+
+/* Девушка детально */
+var swiperGirlsThumbs = new Swiper(".swiper-girl-thumbs", {
+    spaceBetween: 8,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
+    navigation: {
+        nextEl: '.swiper-girl-thumbs .swiper-button-next',
+        prevEl: '.swiper-girl-thumbs .swiper-button-prev',
+    },
+
+});
+var swiperGirl = new Swiper(".swiper-girl", {
+    spaceBetween: 10,
+    loop: true,
+    thumbs: {
+        swiper: swiperGirlsThumbs,
+    },
+    pagination: {
+        el: '.swiper-girl .swiper-pagination',
+        type: 'bullets',
+    },
+})
