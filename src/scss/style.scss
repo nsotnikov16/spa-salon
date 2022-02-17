@@ -56,10 +56,15 @@ main {
     font-family: "Prata";
     font-weight: 400;
     margin: 0 auto 25px;
+    word-wrap: break-word;
 
     @media (max-width: 1220px) {
       font-size: calc(48px + (6 + 6 * 0.7) * ((100vw - 375px) / 1220));
       line-height: calc(60px + (18 + 18 * 0.7) * ((100vw - 375px) / 1220));
+    }
+
+    @media(max-width: 580px) {
+      text-align: left;
     }
   }
 }
@@ -104,6 +109,9 @@ main {
 
 /* Программы */
 @import "programms";
+
+/* Статьи */
+@import "articles";
 
 /* FAQ */
 @import "faq";

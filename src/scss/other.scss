@@ -48,6 +48,23 @@
 }
 
 .phone {
+  &.big {
+    span {
+      font-family: "Prata";
+      font-weight: 400;
+      font-size: 54px;
+      line-height: 50px;
+      text-transform: uppercase;
+      color: #e39e5f;
+      @media (max-width: 580px) {
+        font-size: 36px;
+        line-height: 49px;
+      }
+      @media (max-width: 374px) {
+        font-size: 30px;
+      }
+    }
+  }
   svg {
     width: 17px;
     height: 17px;
@@ -165,4 +182,11 @@
   background: #7d3daf;
 }
 
+.page-title-label {
+  justify-content: center;
+  padding-bottom: 30px;
 
+  @media (max-width: 580px) {
+    justify-content: flex-start;
+  }
+}

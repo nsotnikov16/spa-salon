@@ -1,8 +1,21 @@
 .content {
+  h3 {
+    font-family: "Prata";
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 43px;
+    text-transform: uppercase;
+    padding: 30px 0;
+    @media (max-width: 580px) {
+      font-size: 24px;
+      line-height: 33px;
+    }
+  }
+
   p {
     font-size: 16px;
     line-height: 24px;
-    opacity: 0.75;
+    /* opacity: 0.75; */
     margin-bottom: 15px;
     &:last-of-type {
       margin-bottom: 0;
@@ -40,12 +53,12 @@
       border-radius: 50%;
     }
 
-    @media(max-width: 580px) {
-        font-size: 14px;
-        line-height: 16px;
-        &::before {
-            top: 5px;
-        }
+    @media (max-width: 580px) {
+      font-size: 14px;
+      line-height: 16px;
+      &::before {
+        top: 5px;
+      }
     }
   }
   hr {
@@ -54,8 +67,8 @@
     color: $orange;
     border: 1px solid $orange;
     opacity: 0.5;
-    @media(max-width: 580px) {
-        margin: 20px 0;
+    @media (max-width: 580px) {
+      margin: 20px 0;
     }
   }
 }
