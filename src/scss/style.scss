@@ -63,7 +63,7 @@ main {
       line-height: calc(60px + (18 + 18 * 0.7) * ((100vw - 375px) / 1220));
     }
 
-    @media(max-width: 580px) {
+    @media (max-width: 580px) {
       text-align: left;
     }
   }
@@ -112,6 +112,18 @@ main {
 
 /* Статьи */
 @import "articles";
+
+/* Вакансии */
+@import "vacancies";
+
+/* Заработай себе на */
+@import "earnings";
+
+/* Почему именно мы */
+@import "why";
+
+/* Свайпер "О нас" */
+@import "swiper-about";
 
 /* FAQ */
 @import "faq";

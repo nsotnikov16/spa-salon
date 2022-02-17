@@ -156,3 +156,29 @@ var swiperGirl = new Swiper(".swiper-girl", {
         type: 'bullets',
     },
 })
+
+/* Свайпер "О нас" */
+const swiperAboutOriginal = document.querySelector('.swiper-about')
+const swiperAboutCopy = swiperAboutOriginal.cloneNode(true)
+swiperAboutCopy.classList.add('copy')
+swiperAboutCopy.classList.remove('swiper-about-original')
+swiperAboutOriginal.parentNode.append(swiperAboutCopy)
+
+
+var swiperAbout = new Swiper(".swiper-about-original", {
+    loop: true,
+    pagination: {
+        el: '.swiper-about-original .swiper-pagination',
+        type: 'bullets',
+    },
+    navigation: {
+        nextEl: '.swiper-about-original .swiper-button-next',
+        prevEl: '.swiper-about-original .swiper-button-prev',
+    },
+})
+
+
+
+
+
+

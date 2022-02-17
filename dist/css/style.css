@@ -658,6 +658,14 @@ main {
     line-height: calc(48px + 20.4 * (100vw - 375px) / 1000);
   }
 }
+.section__title.section__title_why br {
+  display: none;
+}
+@media (max-width: 767px) {
+  .section__title.section__title_why br {
+    display: initial;
+  }
+}
 .section__subtitle {
   font-size: 16px;
   line-height: 30px;
@@ -2422,6 +2430,236 @@ main {
   color: #ffa360;
   padding-bottom: 4px;
   border-bottom: 1px dotted #ffa360;
+}
+
+/* Вакансии */
+.vacancies {
+  max-width: 848px;
+}
+@media (max-width: 900px) {
+  .vacancies {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: baseline;
+  }
+}
+@media (max-width: 560px) {
+  .vacancies {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+.vacancies__item {
+  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  gap: 50px;
+}
+.vacancies__item:last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 900px) {
+  .vacancies__item {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 0;
+  }
+}
+.vacancies__img {
+  width: 100%;
+  height: 100%;
+}
+.vacancies__img img,
+.vacancies__img source,
+.vacancies__img picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 6px;
+}
+.vacancies__description .content ul li {
+  line-height: 16px;
+}
+.vacancies__description .content ul li::before {
+  background-color: white;
+  top: 5px;
+}
+.vacancies__name {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+  margin-bottom: 22px;
+}
+
+/* Заработай себе на */
+.earnings {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  align-items: baseline;
+}
+@media (max-width: 768px) {
+  .earnings {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .earnings {
+    grid-template-columns: 1fr;
+  }
+}
+.earnings__img {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
+}
+.earnings__img img,
+.earnings__img source,
+.earnings__img picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 6px;
+}
+.earnings__name {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  margin-bottom: 4px;
+}
+.earnings__deadlines {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+/* Почему именно мы */
+.why {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px 5%;
+  align-items: baseline;
+}
+@media (max-width: 1024px) {
+  .why {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .why {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 767px) {
+  .why {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+.why__item {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 16px 20px;
+}
+.why__counter {
+  font-family: "Prata";
+  font-weight: 400;
+  font-size: 64px;
+  text-transform: uppercase;
+  grid-row: 1/3;
+  min-width: 40px;
+}
+.why__title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  grid-column: 2/3;
+  margin-top: 5px;
+}
+@media (max-width: 767px) {
+  .why__title {
+    font-size: 18px;
+    line-height: 21px;
+  }
+}
+.why__subtitle {
+  font-size: 16px;
+  line-height: 24px;
+  grid-column: 2/3;
+}
+@media (max-width: 767px) {
+  .why__subtitle {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+/* Свайпер "О нас" */
+.swiper-about.copy {
+  display: none;
+}
+@media (min-width: 581px) {
+  .swiper-about {
+    display: none;
+  }
+  .swiper-about.copy {
+    display: block;
+  }
+  .swiper-about .swiper {
+    all: initial;
+  }
+  .swiper-about .swiper-wrapper {
+    all: initial;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  .swiper-about .swiper-slide {
+    all: initial;
+  }
+  .swiper-about .swiper-button-next,
+.swiper-about .swiper-button-prev {
+    display: none;
+  }
+  .swiper-about .swiper-pagination {
+    display: none;
+  }
+}
+@media (min-width: 900px) {
+  .swiper-about .swiper-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.swiper-about .swiper-button-next::after,
+.swiper-about .swiper-button-prev::after {
+  font-size: 20px;
+  color: white;
+}
+.swiper-about .swiper-pagination {
+  position: initial;
+  margin-top: 8px;
+}
+.swiper-about .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  background-color: #fff !important;
+  opacity: 0.5 !important;
+}
+.swiper-about .swiper-pagination-bullet-active {
+  background-color: #ffa360 !important;
+  opacity: 1 !important;
+}
+.swiper-about .swiper-slide img,
+.swiper-about .swiper-slide source,
+.swiper-about .swiper-slide picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 6px;
 }
 
 /* FAQ */

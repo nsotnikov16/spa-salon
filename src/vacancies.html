@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/head.html',{
+"title":"Вакансии"
+})
+
+<body>
+    <div class="page">
+
+        @@include('html/header.html',{})
+        @@include('html/breadcrumbs.html', {})
+        <main>
+            <section class="section">
+                <div class="page__container">
+                    <h1 class="page__title">Вакансии</span>
+                    </h1>
+                    <div class="content">
+                        <p>Начни зарабатывать <span class="orange">от 150 000 руб. в месяц</span> вместе с нами, и
+                            осуществи свои мечты.
+                            Никаких скрытых условий, всё максимально прозрачно: нам нужны молодые девушки в салон
+                            эротического массажа для мужчин (никакого интима!).</p>
+
+                        <p>Вы получаете свой процент от каждого клиента. Работаем на взаимовыгодных условиях.
+                            Ознакомтесь с
+                            условиями и если заинтересовались
+                            - пишите в мессенджер нашего руководителя:</p>
+                    </div>
+                    <div style="margin-top: 30px;" class="programms__socials socials ">
+                        <a class="whatsapp" href="#">
+                            <svg>
+                                <use href="./img/icons/icons.svg#whatsapp"></use>
+                            </svg>
+                            <span>WhatsApp</span>
+                        </a>
+                        <a class="telegram" href="#">
+                            <svg>
+                                <use href="./img/icons/icons.svg#telegram"></use>
+                            </svg>
+                            <span>Telegram</span>
+                        </a>
+                        <a class="viber" href="#">
+                            <svg>
+                                <use href="./img/icons/icons.svg#viber"></use>
+                            </svg>
+                            <span>Viber</span>
+                        </a>
+                    </div>
+                    <hr style="border: 1px solid #ffa360; margin: 30px 0; opacity: 0.6;">
+                    @@include('html/vacancies.html',{})
+                    <hr style="border: 1px solid #ffa360; margin: 30px 0 60px; opacity: 0.6;">
+                    <div class="content">
+                        <h3 style="text-align: center;">Заработай себе на</h3>
+                    </div>
+                    @@include('html/earnings.html', {})
+                </div>
+            </section>
+            <section class="section">
+                <div class="page__container">
+                    <h2 style="max-width: 750px;" class="section__title section__title_why">Почему<br>
+                        <span class="orange">именно мы?</span>
+                    </h2>
+                    @@include('html/why.html', {})
+                </div>
+            </section>
+            <section class="section">
+                <div class="page__container">
+                    <h2 style="max-width: 750px;" class="section__title">Вопрос
+                        <span class="orange">ответ</span>
+                    </h2>
+                    @@include('html/faq.html', {})
+                </div>
+            </section>
+        </main>
+        @@include('html/footer.html',{})
+    </div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

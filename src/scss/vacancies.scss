@@ -1,0 +1,59 @@
+.vacancies {
+  max-width: 848px;
+  @media (max-width: 900px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: baseline;
+  }
+
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  &__item {
+    margin-bottom: 50px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    gap: 50px;
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    img,
+    source,
+    picture {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 6px;
+    }
+  }
+
+  &__description {
+    .content ul li {
+      line-height: 16px;
+      &::before {
+        background-color: white;
+        top: 5px;
+      }
+    }
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 24px;
+    margin-bottom: 22px;
+  }
+}
