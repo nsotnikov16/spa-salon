@@ -159,11 +159,12 @@ var swiperGirl = new Swiper(".swiper-girl", {
 
 /* Свайпер "О нас" */
 const swiperAboutOriginal = document.querySelector('.swiper-about')
-const swiperAboutCopy = swiperAboutOriginal.cloneNode(true)
-swiperAboutCopy.classList.add('copy')
-swiperAboutCopy.classList.remove('swiper-about-original')
-swiperAboutOriginal.parentNode.append(swiperAboutCopy)
-
+if (swiperAboutOriginal) {
+    const swiperAboutCopy = swiperAboutOriginal.cloneNode(true)
+    swiperAboutCopy.classList.add('copy')
+    swiperAboutCopy.classList.remove('swiper-about-original')
+    swiperAboutOriginal.parentNode.append(swiperAboutCopy)
+}
 
 var swiperAbout = new Swiper(".swiper-about-original", {
     loop: true,
@@ -178,7 +179,79 @@ var swiperAbout = new Swiper(".swiper-about-original", {
 })
 
 
+// YMaps
+if (document.querySelector('#map')) ymaps.ready(init);
+
+function init() {
+    var myMap = new ymaps.Map(
+        "map",
+        {
+            center: [61.246552, 73.463541],
+            zoom: 16,
+        },
+        {
+            searchControlProvider: "yandex#search",
+        }
+    )
+
+    var myPlacemarkWithContent = new ymaps.Placemark(
+        [61.246552, 73.463541],
+        {
+            balloonContent: '<strong>Массаж</strong>',
+        },
+        {
+            preset: 'islands#redDotIconWithCaption'
+        }
+    );
+
+    myMap.geoObjects.add(myPlacemarkWithContent);
+}
 
 
 
+/* Popups */
+// Popups
+class Popup {
+    constructor(popupElement) {
+        this._popupElement = popupElement;
+        this._closeButton = this._popupElement.querySelector('.popup__close');
+        this._handleEscClose = this._handleEscClose.bind(this)
+        this._openingLinks = document.querySelectorAll(`[data-pointer="${this._popupElement.id}"]`)
+        this.setEventListeners()
+    }
+
+    open(el) {
+        document.body.style.overflow = "hidden";
+        this._popupElement.classList.add('popup_opened')
+        document.addEventListener('keydown', this._handleEscClose);
+    }
+
+    close() {
+        this._popupElement.classList.remove('popup_opened');
+        document.body.style.overflow = "visible";
+        document.removeEventListener('keydown', this._handleEscClose);
+    }
+
+    _handleEscClose(evt) {
+        if (evt.keyCode === 27) {
+            this.close();
+        }
+    }
+
+    _handleOverlayClick(evt) {
+        if (evt.target === evt.currentTarget) {
+            this.close();
+        }
+    }
+
+    setEventListeners() {
+        this._openingLinks.forEach(link => link.addEventListener('click', (e) => { e.preventDefault(); this.open(e.target) }))
+        this._closeButton.addEventListener('click', () => this.close());
+        this._popupElement.addEventListener('click', this._handleOverlayClick.bind(this));
+    }
+}
+
+const popups = document.querySelectorAll('.popup')
+
+if (popups.length > 0) popups.forEach(item => new Popup(item))
 

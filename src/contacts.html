@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/head.html',{
+"title":"О нас"
+})
+
+<body>
+    <div class="page">
+
+        @@include('html/header.html',{})
+        @@include('html/breadcrumbs.html', {})
+        <main>
+            <section class="section">
+                <div class="page__container">
+                    <h1 class="page__title">Мы находимся в центре СУРГУТА
+                        <span class="orange">на ул. Ивана Захарова 10</span></span>
+                    </h1>
+                </div>
+            </section>
+            <section class="section">
+                <div class="page__container">
+                    <div class="contacts">
+                        <div class="contacts__info">
+                            <div class="content">
+                                <p>Мужской спа салон Spa находится в центре Сургута на первом этаже элитного жилого
+                                    комплекса
+                                    Сапфир - две 25-этажные высотки на берегу Камы рядом с Коммунальным мостом.</p>
+
+                                <p>Если вы приедете на личном автомобиле, то мы можем предложить охраняемую парковку на
+                                    территории дома, достаточно позвонить в салон и администратор поднимет шлагбаум.
+                                    Также
+                                    вы
+                                    всегда можете воспользоваться бесплатным такси до нашего салона</p>
+                            </div>
+                            <div class="footer__phone contacts__block">
+                                <h4 class="footer__title">Телефон</h4>
+                                <a href="tel:83462333244">+7 (3462) 33-32-44</a>
+                            </div>
+                            <div class="footer__address contacts__block">
+                                <h4 class="footer__title">Адрес</h4>
+                                <p>Сургут, ул. Ивана Захарова 10</p>
+                                <p>Вход с обратной стороны здания</p>
+                            </div>
+                            <div class="footer__mode contacts__block">
+                                <h4 class="footer__title">Режим работы</h4>
+                                <p>Круглосуточно, без выходных</p>
+                            </div>
+                            <hr style="border: 1px solid #FFA36080; margin: 30px 0;">
+                            <div class="programms__socials socials ">
+                                <a class="whatsapp" href="#">
+                                    <svg>
+                                        <use href="./img/icons/icons.svg#whatsapp"></use>
+                                    </svg>
+                                    <span>WhatsApp</span>
+                                </a>
+                                <a class="telegram" href="#">
+                                    <svg>
+                                        <use href="./img/icons/icons.svg#telegram"></use>
+                                    </svg>
+                                    <span>Telegram</span>
+                                </a>
+                                <a class="viber" href="#">
+                                    <svg>
+                                        <use href="./img/icons/icons.svg#viber"></use>
+                                    </svg>
+                                    <span>Viber</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="map" class="contacts__map"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        @@include('html/footer.html',{})
+    </div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

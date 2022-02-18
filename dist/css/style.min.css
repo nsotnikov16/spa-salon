@@ -632,7 +632,12 @@ main {
 }
 
 .section {
-  margin: 0 0 80px;
+  margin: 0 0 70px;
+}
+@media (max-width: 580px) {
+  .section {
+    margin: 0 0 50px;
+  }
 }
 .section:last-child {
   margin: 0;
@@ -3020,6 +3025,111 @@ main {
   }
 }
 
+/* Контакты */
+.contacts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+@media (max-width: 1220px) {
+  .contacts {
+    grid-template-columns: 1fr;
+  }
+}
+@media (min-width: 1220px) {
+  .contacts .socials {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+.contacts__map {
+  width: 100%;
+  height: 335px;
+}
+.contacts__block {
+  margin-bottom: 26px;
+  grid-column: initial;
+  grid-row: initial;
+}
+@media (max-width: 580px) {
+  .contacts__block {
+    align-items: flex-start;
+  }
+}
+.contacts__block.footer__phone {
+  margin-top: 26px;
+}
+.contacts__block.footer__mode {
+  margin-bottom: 0;
+}
+
+/* Записаться модалка */
+.signup {
+  max-width: 870px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: #0d0e0e;
+  padding: 100px;
+  border-radius: 6px;
+}
+@media (max-width: 900px) {
+  .signup {
+    max-width: 90vw;
+    padding: 60px calc(25px + 127.5 * (100vw - 375px) / 900) 40px;
+  }
+}
+.signup .phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 45px;
+}
+@media (max-width: 580px) {
+  .signup .phone {
+    margin-top: 20px;
+  }
+}
+.signup .phone svg {
+  width: 38px;
+  height: 38px;
+  fill: #ffa360;
+  margin-right: 10px;
+}
+@media (max-width: 900px) {
+  .signup .phone svg {
+    width: calc(30px + 13.6 * (100vw - 375px) / 900);
+    height: calc(30px + 13.6 * (100vw - 375px) / 900);
+  }
+}
+.signup .phone span {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 57px;
+}
+@media (max-width: 900px) {
+  .signup .phone span {
+    font-size: calc(30px + 30.6 * (100vw - 375px) / 900);
+    line-height: calc(36px + 35.7 * (100vw - 375px) / 900);
+  }
+}
+@media (max-width: 580px) {
+  .signup .phone span {
+    font-size: 22px;
+  }
+}
+.signup p {
+  font-size: 30px;
+  line-height: 42px;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .signup p {
+    font-size: calc(18px + 20.4 * (100vw - 375px) / 900);
+    line-height: calc(24px + 30.6 * (100vw - 375px) / 900);
+  }
+}
+
+/* Сториз */
 /* Попапы */
 .popup {
   position: fixed;
@@ -3051,11 +3161,13 @@ main {
   top: 25px;
   right: 20px;
   font-size: 25px;
-  color: #fff;
   font-weight: 300;
 }
-.popup__close:hover {
-  /* color: $green; */
+.popup__close span {
+  color: white;
+}
+.popup__close:hover span {
+  color: #ffa360;
 }
 .popup__img {
   max-width: 50vw;

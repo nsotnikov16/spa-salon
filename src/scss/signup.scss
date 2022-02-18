@@ -1,0 +1,58 @@
+.signup {
+  max-width: 870px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: #0d0e0e;
+  padding: 100px;
+  border-radius: 6px;
+
+  @media (max-width: 900px) {
+    max-width: 90vw;
+    padding: 60px calc(25px + (75 + 75 * 0.7) * ((100vw - 375px) / 900)) 40px;
+  }
+
+  .phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 45px;
+
+    @media (max-width: 580px) {
+      margin-top: 20px;
+    }
+    svg {
+      width: 38px;
+      height: 38px;
+      fill: $orange;
+      margin-right: 10px;
+      @media (max-width: 900px) {
+        width: calc(30px + (8 + 8 * 0.7) * ((100vw - 375px) / 900));
+        height: calc(30px + (8 + 8 * 0.7) * ((100vw - 375px) / 900));
+      }
+    }
+    span {
+      font-weight: 600;
+      font-size: 48px;
+      line-height: 57px;
+      @media (max-width: 900px) {
+        font-size: calc(30px + (18 + 18 * 0.7) * ((100vw - 375px) / 900));
+        line-height: calc(36px + (21 + 21 * 0.7) * ((100vw - 375px) / 900));
+      }
+      @media (max-width: 580px) {
+        font-size: 22px;
+      }
+    }
+  }
+
+  p {
+    font-size: 30px;
+    line-height: 42px;
+    text-align: center;
+
+    @media (max-width: 900px) {
+      font-size: calc(18px + (12 + 12 * 0.7) * ((100vw - 375px) / 900));
+      line-height: calc(24px + (18 + 18 * 0.7) * ((100vw - 375px) / 900));
+    }
+  }
+}
