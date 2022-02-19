@@ -3791,7 +3791,7 @@ main {
 
   .stories {
     max-width: 90vw;
-    max-height: 90vh;
+    height: 90vh;
   }
 
   .stories__title {
