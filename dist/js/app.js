@@ -268,7 +268,7 @@ class Stories {
             this.nextButton = this.mainBlock.querySelector('.swiper-button-next')
             this.prevButton = this.mainBlock.querySelector('.swiper-button-prev')
             this.counters = [];
-            this.time = 8000;
+            this.time = 6000;
             this.swiperStories = new Swiper(".stories__swiper", {
                 allowTouchMove: false,
                 navigation: {

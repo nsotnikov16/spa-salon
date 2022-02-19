@@ -13,7 +13,8 @@
 
 <body>
 	<div class="page">
-		<div style="background-image: url('./img/banner.png');" class="cover">
+		<div style="background:linear-gradient(180deg, rgba(6, 6, 6, 0) 0%, #161717 100%), url('./img/banner.png');"
+			class="cover">
 			<header class="header">
     <div class="page__container">
         <div class="header__container">
@@ -102,6 +103,37 @@
 </div>
 		</div>
 		<main>
+			<!-- Сториз -->
+			<div class="to-stories">
+    <div class="page__container">
+        <ul class="to-stories__list">
+            <li data-pointer="stories" onclick="stories.onActiveSlide(0)" class="to-stories__item">
+                <div class="to-stories__img">
+                    <img src="./img/to-stories1.png">
+                </div>
+                <p class="to-stories__title">
+                    Скидка именинникам!
+                </p>
+            </li>
+            <li data-pointer="stories" onclick="stories.onActiveSlide(1)" class="to-stories__item">
+                <div class="to-stories__img">
+                    <img src="./img/to-stories2.png">
+                </div>
+                <p class="to-stories__title">
+                    Дадим купон
+                </p>
+            </li>
+            <li data-pointer="stories" onclick="stories.onActiveSlide(2)" class="to-stories__item">
+                <div class="to-stories__img">
+                    <img src="./img/to-stories3.png">
+                </div>
+                <p class="to-stories__title">
+                    Скидка именинникам!
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>
 			<!-- Наши девушки -->
 			<section class="section">
 				<div class="page__container">
@@ -1295,7 +1327,8 @@
         </div>
     </li>
 </ul>
-					<a href="#" data-pointer="stories" onclick="stories.onActiveSlide(2)" class="btn btn_programms">Все программы</a>
+					<a href="#" class="btn btn_programms">Все
+						программы</a>
 				</div>
 			</section>
 			<!-- Вопрос - ответ -->
@@ -1649,11 +1682,14 @@
 									<div class="swiper-slide" id="2">
 										<div class="stories__slide-container">
 											<div class="stories__preview-img">
-												<img src="./img/stories.png">
+												<img src="./img/to-stories2.png">
 											</div>
-											<h3 class="stories__title orange">Скидка именинникам!</h3>
+											<h3 class="stories__title orange">Дадим купон!</h3>
 											<p class="stories__subtitle">
-												Скидка именинникам 10%. Действует в День Рождения и три дня после.
+												Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, a
+												nesciunt. Obcaecati id ratione perferendis ducimus, harum rem sed
+												incidunt minima quae optio ex temporibus quidem iusto veniam? Explicabo,
+												repellendus?
 											</p>
 										</div>
 										<a href="tel:+78005553535" class="btn stories__btn">Позвонить</a>
@@ -1661,7 +1697,7 @@
 									<div class="swiper-slide" id="3">
 										<div class="stories__slide-container">
 											<div class="stories__preview-img">
-												<img src="./img/stories.png">
+												<img src="./img/to-stories3.png">
 											</div>
 											<h3 class="stories__title orange">Скидка именинникам!</h3>
 											<p class="stories__subtitle">

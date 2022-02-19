@@ -1,12 +1,12 @@
 .cover {
-  background-position: top center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-position: top center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
   @media (max-width: 1000px) {
-    background-position: top left;
+    background-position: top left !important;
   }
   @media (max-width: 560px) {
-    background-position: 25%;
+    background-position: 25% !important;
   }
 }
 

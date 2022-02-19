@@ -5,8 +5,10 @@
 .banner {
   padding: 241px 0 100px;
   @media (max-width: 1000px) {
-    margin-top: calc(135px + (106 + 106 * 0.7) * ((100vw - 375px) / 1000));
+    padding-top: calc(135px + (106 + 106 * 0.7) * ((100vw - 375px) / 1000));
   }
+
+
   &__title {
     font-family: "Prata";
     font-size: 30px;

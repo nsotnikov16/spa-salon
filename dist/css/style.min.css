@@ -552,18 +552,18 @@ main {
 
 /* Прочее */
 .cover {
-  background-position: top center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-position: top center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
 }
 @media (max-width: 1000px) {
   .cover {
-    background-position: top left;
+    background-position: top left !important;
   }
 }
 @media (max-width: 560px) {
   .cover {
-    background-position: 25%;
+    background-position: 25% !important;
   }
 }
 
@@ -1565,7 +1565,7 @@ main {
 }
 @media (max-width: 1000px) {
   .banner {
-    margin-top: calc(135px + 180.2 * (100vw - 375px) / 1000);
+    padding-top: calc(135px + 180.2 * (100vw - 375px) / 1000);
   }
 }
 .banner__title {
@@ -1668,6 +1668,74 @@ main {
 @media (max-width: 560px) {
   .banner__prices .orange {
     margin-left: 10px;
+  }
+}
+
+/* Акции (истории) */
+.to-stories {
+  margin: -50px 0 60px;
+}
+.to-stories__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 135px);
+  gap: 25px;
+  align-items: baseline;
+}
+@media (max-width: 1024px) {
+  .to-stories__list {
+    display: flex;
+    align-items: baseline;
+    gap: initial;
+    padding-bottom: 10px;
+  }
+}
+.to-stories__item {
+  flex-shrink: 0;
+  cursor: pointer;
+}
+@media (max-width: 1024px) {
+  .to-stories__item {
+    margin-right: 25px;
+    width: 135px;
+  }
+}
+@media (max-width: 768px) {
+  .to-stories__item {
+    margin-right: 20px;
+  }
+}
+.to-stories__item:last-child {
+  margin-right: 0;
+}
+.to-stories__img {
+  width: 100%;
+  height: 100%;
+  border-radius: 17px;
+  border: 1px solid #fff;
+  margin-bottom: 6px;
+}
+.to-stories__img:hover {
+  border: 1px solid #ffa360;
+}
+.to-stories__img img,
+.to-stories__img source,
+.to-stories__img picture {
+  width: 100%;
+  height: 100%;
+  border-radius: 17px;
+  object-fit: cover;
+}
+.to-stories__title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+}
+@media (max-width: 1024px) {
+  .to-stories .page__container {
+    width: 100vw;
+    overflow: auto;
+    padding-right: 0;
   }
 }
 
@@ -3193,7 +3261,6 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-  /* width: 30%; */
   height: 100%;
 }
 .stories__btn {
@@ -3273,7 +3340,8 @@ main {
 .stories__preview-img picture {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
   border-radius: 50%;
 }
 .stories__preview-img::before {
