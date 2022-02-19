@@ -2924,6 +2924,18 @@ main {
   bottom: 0;
   height: 90%;
   width: 70px;
+  border: 0;
+  color: #0d0e0e;
+  outline: none;
+}
+
+.stories .swiper-button-next:hover,
+.stories .swiper-button-next:active,
+.stories .swiper-button-prev:hover,
+.stories .swiper-button-prev:active {
+  border: 0;
+  color: #0d0e0e;
+  outline: none;
 }
 
 .stories .swiper-button-next::after,
