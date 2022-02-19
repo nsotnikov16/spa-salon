@@ -137,6 +137,16 @@
           }
         }
 
+        .menu__item-dropdown {
+          &::before {
+            right: -16px;
+          }
+
+          &::after {
+            right: -20px;
+          }
+        }
+
         .menu__link {
           font-weight: 500;
           font-size: 24px;

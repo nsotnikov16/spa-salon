@@ -1,0 +1,57 @@
+.stocks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  align-items: baseline;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    align-items: initial;
+  }
+
+  &__item {
+    height: 100%;
+  }
+
+  &__img {
+    width: 100%;
+    height: 430px;
+    @media (max-width: 767px) {
+      height: 600px;
+    }
+    @media (max-width: 766px) {
+      height: calc(400px + (200 + 200 * 0.7) * ((100vw - 375px) / 766));
+    }
+
+    img,
+    picture,
+    source {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+  }
+
+  &__title {
+    font-family: "Prata";
+    font-weight: 400;
+    margin-top: 25px;
+    font-size: 30px;
+    line-height: 38px;
+    text-align: center;
+  }
+
+  &__subtitle {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    opacity: 0.75;
+  }
+}

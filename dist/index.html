@@ -32,17 +32,20 @@
                     <li class="menu__item"><a class="menu__link" href="#">Акции</a></li>
                     <li class="menu__item menu__item-dropdown">
                         <a class="menu__link" href="#">О салоне</a>
-                        <ul class="menu__list-dropdown">
-                            <li class="menu__item-dropdown-li">
-                                <a class="menu__link-dropdown" href="#"></a>
-                            </li>
-                            <li class="menu__item-dropdown-li">
-                                <a class="menu__link-dropdown" href="#"></a>
-                            </li>
-                            <li class="menu__item-dropdown-li">
-                                <a class="menu__link-dropdown" href="#"></a>
-                            </li>
-                        </ul>
+                        <div class="menu__expand">
+                            <ul class="menu__list-dropdown">
+                                <li class="menu__item-dropdown-li">
+                                    <a class="menu__link-dropdown" href="#">Пункт 1</a>
+                                </li>
+                                <li class="menu__item-dropdown-li">
+                                    <a class="menu__link-dropdown" href="#">Пункт 2</a>
+                                </li>
+                                <li class="menu__item-dropdown-li">
+                                    <a class="menu__link-dropdown" href="#">Пункт 3</a>
+                                </li>
+                            </ul>
+                        </div>
+
                     </li>
                     <li class="menu__item"><a class="menu__link" href="#">Контакты</a></li>
                 </ul>
@@ -107,7 +110,7 @@
 			<div class="to-stories">
     <div class="page__container">
         <ul class="to-stories__list">
-            <li data-pointer="stories" onclick="stories.onActiveSlide(0)" class="to-stories__item">
+            <li data-pointer="stories" onclick="stories.onActiveSlide(0)" class="to-stories__item for-fixed">
                 <div class="to-stories__img">
                     <img src="./img/to-stories1.png">
                 </div>

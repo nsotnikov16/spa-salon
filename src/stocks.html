@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/head.html',{
+"title":"О нас"
+})
+
+<body>
+    <div class="page">
+
+        @@include('html/header.html',{})
+        @@include('html/breadcrumbs.html', {})
+        <main>
+            <section class="section">
+                <div class="page__container">
+                    <h1 class="page__title">Акции
+                    </h1>
+                </div>
+            </section>
+            <section class="section">
+                <div class="page__container">
+                    @@include('html/stocks.html', {})
+                </div>
+            </section>
+
+        </main>
+        @@include('html/footer.html',{})
+    </div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

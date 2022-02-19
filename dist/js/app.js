@@ -207,6 +207,38 @@ function init() {
     myMap.geoObjects.add(myPlacemarkWithContent);
 }
 
+
+/* Скролл первой акции сториз */
+const firstStock = document.querySelector('.to-stories__item.for-fixed')
+
+if (firstStock) {
+
+
+    function getCoords(elem) {
+        let box = elem.getBoundingClientRect();
+
+        return {
+            top: Math.ceil(box.top + window.pageYOffset),
+            right: Math.ceil(box.right + window.pageXOffset),
+            bottom: Math.ceil(box.bottom + window.pageYOffset),
+            left: Math.ceil(box.left + window.pageXOffset)
+        };
+    }
+    let coordinates = getCoords(firstStock)
+    console.log(coordinates)
+    const firstStockCopy = firstStock.cloneNode(true)
+    firstStockCopy.classList.add('fixed')
+    firstStockCopy.querySelector('.to-stories__title').remove()
+    document.querySelector('.page').append(firstStockCopy)
+
+    window.addEventListener('scroll', () => {
+        const scroll = Math.ceil(window.scrollY)
+        if (scroll >= coordinates.bottom) firstStockCopy.classList.add('display')
+        if (scroll < coordinates.bottom) firstStockCopy.classList.remove('display')
+    })
+}
+
+
 // Popups
 class Popup {
     constructor(popupElement) {
