@@ -207,27 +207,24 @@ function init() {
     myMap.geoObjects.add(myPlacemarkWithContent);
 }
 
-
-
-/* Popups */
 // Popups
 class Popup {
     constructor(popupElement) {
-        this._popupElement = popupElement;
-        this._closeButton = this._popupElement.querySelector('.popup__close');
+        this.popupElement = popupElement;
+        this._closeButton = this.popupElement.querySelector('.popup__close');
         this._handleEscClose = this._handleEscClose.bind(this)
-        this._openingLinks = document.querySelectorAll(`[data-pointer="${this._popupElement.id}"]`)
+        this._openingLinks = document.querySelectorAll(`[data-pointer="${this.popupElement.id}"]`)
         this.setEventListeners()
     }
 
     open(el) {
         document.body.style.overflow = "hidden";
-        this._popupElement.classList.add('popup_opened')
+        this.popupElement.classList.add('popup_opened')
         document.addEventListener('keydown', this._handleEscClose);
     }
 
     close() {
-        this._popupElement.classList.remove('popup_opened');
+        this.popupElement.classList.remove('popup_opened');
         document.body.style.overflow = "visible";
         document.removeEventListener('keydown', this._handleEscClose);
     }
@@ -247,11 +244,83 @@ class Popup {
     setEventListeners() {
         this._openingLinks.forEach(link => link.addEventListener('click', (e) => { e.preventDefault(); this.open(e.target) }))
         this._closeButton.addEventListener('click', () => this.close());
-        this._popupElement.addEventListener('click', this._handleOverlayClick.bind(this));
+        this.popupElement.addEventListener('click', this._handleOverlayClick.bind(this));
     }
 }
 
 const popups = document.querySelectorAll('.popup')
+if (popups.length > 0) popups.forEach(item => {
+    const popup = new Popup(item)
+})
 
-if (popups.length > 0) popups.forEach(item => new Popup(item))
 
+
+/* Сториз */
+class Stories {
+    constructor() {
+        this.mainBlock = document.querySelector('#stories')
+        this.slides = this.mainBlock.querySelectorAll('.swiper-slide')
+        this.progressSpans = this.mainBlock.querySelectorAll('.stories__progress span')
+        this.nextButton = this.mainBlock.querySelector('.swiper-button-next')
+        this.prevButton = this.mainBlock.querySelector('.swiper-button-prev')
+        this.counters = [];
+        this.time = 8000;
+        this.swiperStories = new Swiper(".stories__swiper", {
+            allowTouchMove: false,
+            navigation: {
+                nextEl: '.stories .swiper-button-next',
+                prevEl: '.stories .swiper-button-prev',
+            }
+        })
+
+        this.setEventListeners()
+
+    }
+    onActiveSlide(index) {
+        this.swiperStories.slideTo(index)
+        this.activeSlide()
+    }
+    activeSlide() {
+        const activeSlide = this.mainBlock.querySelector('.swiper-slide-active')
+        const nextSlide = this.mainBlock.querySelector('.swiper-slide-next')
+        const previousSlides = Array.from(this.mainBlock.querySelectorAll('.swiper-slide')).filter(item => item.id < activeSlide.id)
+        if (previousSlides.length > 0) previousSlides.forEach(item => {
+            const progressSpan = this.mainBlock.querySelector(`.stories__progress-block-${item.id} span`)
+            progressSpan.style.width = '100%';
+        })
+        const progressSpanActive = this.mainBlock.querySelector(`.stories__progress-block-${activeSlide.id} span`)
+        let timeActive = 0;
+        this.intervalId = setInterval(() => {
+            timeActive += 5
+            progressSpanActive.style.width = `${(timeActive / this.time) * 100}%`
+            if (timeActive === this.time) {
+                clearInterval(this.intervalId)
+                if (nextSlide) {
+                    this.onActiveSlide(nextSlide.id - 1)
+                } else {
+                    this.mainBlock.classList.remove('popup_opened')
+                }
+            }
+        }, 1)
+    }
+
+    reset() {
+        this.intervalId ? clearInterval(this.intervalId) : ''
+        this.progressSpans.forEach(item => item.style.width = '0')
+    }
+
+    setEventListeners() {
+        this.nextButton.addEventListener('click', () => {
+            const activeSlide = this.mainBlock.querySelector('.swiper-slide-active')
+            this.reset()
+            this.activeSlide()
+            
+        })
+        this.prevButton.addEventListener('click', () => {
+            this.reset()
+            this.activeSlide()
+        })
+    }
+}
+
+const stories = new Stories()

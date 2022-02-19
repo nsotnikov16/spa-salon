@@ -32,6 +32,10 @@
     font-weight: 300;
     span {
       color: white;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     &:hover {
       span {
@@ -56,10 +60,15 @@
   }
 }
 
-#photo.popup {
+#stories.popup {
   .popup__close {
-    color: white;
-    right: -10px;
     top: -25px;
+    right: -20px;
+    font-size: 15px;
+    font-weight: 300;
+    background: #0d0e0e;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
   }
 }
