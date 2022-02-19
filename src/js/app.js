@@ -227,6 +227,7 @@ class Popup {
         this.popupElement.classList.remove('popup_opened');
         document.body.style.overflow = "visible";
         document.removeEventListener('keydown', this._handleEscClose);
+        if (this.popupElement.id === 'stories') stories.reset()
     }
 
     _handleEscClose(evt) {
@@ -249,8 +250,10 @@ class Popup {
 }
 
 const popups = document.querySelectorAll('.popup')
+let arrPopups = {}
 if (popups.length > 0) popups.forEach(item => {
     const popup = new Popup(item)
+    arrPopups[item.id] = popup
 })
 
 
@@ -259,35 +262,49 @@ if (popups.length > 0) popups.forEach(item => {
 class Stories {
     constructor() {
         this.mainBlock = document.querySelector('#stories')
-        this.slides = this.mainBlock.querySelectorAll('.swiper-slide')
-        this.progressSpans = this.mainBlock.querySelectorAll('.stories__progress span')
-        this.nextButton = this.mainBlock.querySelector('.swiper-button-next')
-        this.prevButton = this.mainBlock.querySelector('.swiper-button-prev')
-        this.counters = [];
-        this.time = 8000;
-        this.swiperStories = new Swiper(".stories__swiper", {
-            allowTouchMove: false,
-            navigation: {
-                nextEl: '.stories .swiper-button-next',
-                prevEl: '.stories .swiper-button-prev',
-            }
-        })
-
-        this.setEventListeners()
-
+        if (this.mainBlock) {
+            this.slides = this.mainBlock.querySelectorAll('.swiper-slide')
+            this.progressSpans = this.mainBlock.querySelectorAll('.stories__progress span')
+            this.nextButton = this.mainBlock.querySelector('.swiper-button-next')
+            this.prevButton = this.mainBlock.querySelector('.swiper-button-prev')
+            this.counters = [];
+            this.time = 8000;
+            this.swiperStories = new Swiper(".stories__swiper", {
+                allowTouchMove: false,
+                navigation: {
+                    nextEl: '.stories .swiper-button-next',
+                    prevEl: '.stories .swiper-button-prev',
+                },
+            })
+            this.setEventListeners()
+        }
     }
+
     onActiveSlide(index) {
         this.swiperStories.slideTo(index)
         this.activeSlide()
     }
     activeSlide() {
         const activeSlide = this.mainBlock.querySelector('.swiper-slide-active')
+
+        this.nextButton.removeEventListener('click', this.handler1)
+        this.nextButton.removeEventListener('click', this.handler2)
+
+        if (activeSlide.id == this.slides.length) {
+            this.nextButton.addEventListener('click', this.handler2)
+        } else {
+            this.nextButton.addEventListener('click', this.handler1)
+        }
+
+
         const nextSlide = this.mainBlock.querySelector('.swiper-slide-next')
         const previousSlides = Array.from(this.mainBlock.querySelectorAll('.swiper-slide')).filter(item => item.id < activeSlide.id)
         if (previousSlides.length > 0) previousSlides.forEach(item => {
             const progressSpan = this.mainBlock.querySelector(`.stories__progress-block-${item.id} span`)
             progressSpan.style.width = '100%';
         })
+
+
         const progressSpanActive = this.mainBlock.querySelector(`.stories__progress-block-${activeSlide.id} span`)
         let timeActive = 0;
         this.intervalId = setInterval(() => {
@@ -298,7 +315,7 @@ class Stories {
                 if (nextSlide) {
                     this.onActiveSlide(nextSlide.id - 1)
                 } else {
-                    this.mainBlock.classList.remove('popup_opened')
+                    this.closeStories()
                 }
             }
         }, 1)
@@ -308,14 +325,20 @@ class Stories {
         this.intervalId ? clearInterval(this.intervalId) : ''
         this.progressSpans.forEach(item => item.style.width = '0')
     }
+    handler1 = () => {
+        this.reset()
+        this.activeSlide()
+    }
 
+    handler2 = () => {
+        this.closeStories()
+    }
+
+    closeStories = () => {
+        this.reset()
+        arrPopups[this.mainBlock.id].close()
+    }
     setEventListeners() {
-        this.nextButton.addEventListener('click', () => {
-            const activeSlide = this.mainBlock.querySelector('.swiper-slide-active')
-            this.reset()
-            this.activeSlide()
-            
-        })
         this.prevButton.addEventListener('click', () => {
             this.reset()
             this.activeSlide()

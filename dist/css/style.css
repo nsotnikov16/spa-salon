@@ -3359,3 +3359,11 @@ main {
   width: 30px;
   height: 30px;
 }
+@media (max-width: 580px) {
+  #stories.popup .popup__close {
+    width: 25px;
+    height: 25px;
+    top: -20px;
+    right: -15px;
+  }
+}
