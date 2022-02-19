@@ -3081,8 +3081,8 @@ main {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  -o-object-position: top center;
+     object-position: top center;
   border-radius: 50%;
 }
 
