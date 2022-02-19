@@ -3081,8 +3081,8 @@ main {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  -o-object-position: top center;
+     object-position: top center;
   border-radius: 50%;
 }
 
@@ -3791,6 +3791,7 @@ main {
 
   .stories {
     max-width: 90vw;
+    height: 90vh;
   }
 
   .stories__title {
