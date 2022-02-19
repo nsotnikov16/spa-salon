@@ -19,6 +19,15 @@
     bottom: 0;
     height: 90%;
     width: 70px;
+    border: 0;
+    color: #0d0e0e;
+    outline: none;
+    &:hover,
+    &:active {
+      border: 0;
+      color: #0d0e0e;
+      outline: none;
+    }
     &::after {
       content: initial;
     }
