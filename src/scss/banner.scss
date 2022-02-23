@@ -1,13 +1,12 @@
-.page {
-  &__container {
-  }
-}
 .banner {
   padding: 241px 0 100px;
+  ._anim-items {
+    opacity: 0;
+    visibility: hidden;
+  }
   @media (max-width: 1000px) {
     padding-top: calc(135px + (106 + 106 * 0.7) * ((100vw - 375px) / 1000));
   }
-
 
   &__title {
     font-family: "Prata";
@@ -17,6 +16,8 @@
     text-transform: uppercase;
     font-weight: 400;
     margin-bottom: 30px;
+
+    transition: transform 0.5s ease 0.5s, opacity 0.5s ease 0.5s;
     @media (max-width: 1000px) {
       font-size: calc(18px + (12 + 12 * 0.7) * ((100vw - 375px) / 1000));
       line-height: calc(30px + (9 + 9 * 0.7) * ((100vw - 375px) / 1000));
@@ -37,6 +38,7 @@
     line-height: 88px;
     text-align: center;
     text-transform: uppercase;
+    transition: transform 0.65s ease 0.65s, opacity 0.65s ease 0.65s;
     @media (max-width: 1000px) {
       font-size: calc(36px + (18 + 18 * 0.7) * ((100vw - 375px) / 1000));
       line-height: calc(48px + (40 + 40 * 0.7) * ((100vw - 375px) / 1000));
@@ -68,6 +70,7 @@
     width: 211px;
     height: 60px;
     margin-right: 39px;
+    transition: transform 0.75s ease 0.75s, opacity 0.75s ease 0.75s;
     @media (max-width: 560px) {
       margin-right: 0;
       grid-row: 2/3;
@@ -77,6 +80,7 @@
   &__prices {
     display: flex;
     align-items: center;
+    transition: transform 0.85s ease 0.85s, opacity 0.85s ease 0.85s;
     p {
       font-size: 18px;
       line-height: 30px;
@@ -98,6 +102,17 @@
       @media (max-width: 560px) {
         margin-left: 10px;
       }
+    }
+  }
+
+  &__title,
+  &__subtitle,
+  &__prices,
+  &__btn {
+    &._animate {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
     }
   }
 }

@@ -235,7 +235,7 @@
     display: grid;
     grid-template-columns: repeat(3, 160px);
     gap: 15px;
-    align-items: baseline;
+    align-items: center;
     @media (max-width: 580px) {
       grid-template-columns: repeat(2, 140px);
     }
@@ -250,10 +250,10 @@
       width: 100%;
       height: 50px;
       border-radius: 30px;
-      #telegram {
+      &.telegram {
         svg {
-          width: 35px;
-          height: 35px;
+          width: 35px !important;
+          height: 35px !important;
         }
       }
 

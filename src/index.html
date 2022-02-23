@@ -6,7 +6,7 @@
 
 <body>
 	<div class="page">
-		<div style="background:linear-gradient(180deg, rgba(6, 6, 6, 0) 0%, #161717 100%), url('./img/banner.png');"
+		<div style="background:linear-gradient(180deg, rgba(6, 6, 6, 0) 0%, #161717 100%), url('./img/Frame1.png');"
 			class="cover">
 			@@include('html/header.html',{})
 			@@include('html/banner.html', {})
@@ -54,7 +54,7 @@
 			<!-- Вопрос - ответ -->
 			<section class="section">
 				<div class="page__container">
-					<h2 class="section__title"></h2>
+					<h2 class="section__title">Вопрос <span class="orange">Ответ</span></h2>
 					@@include('html/faq.html', {})
 				</div>
 			</section>
@@ -66,6 +66,9 @@
 					@@include('html/advantage.html', {})
 				</div>
 			</section>
+			<script>
+				document.querySelector('.advantage__cards').classList.add('hide-mobile')
+			</script>
 		</main>
 		@@include('html/footer.html',{})
 		<div id="signup" class="popup">

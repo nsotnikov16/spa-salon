@@ -54,6 +54,11 @@
     @media (max-width: 560px) {
       display: none;
     }
+
+    .telegram svg {
+      width: 26px;
+      height: 26px;
+    }
   }
 
   &__btn {

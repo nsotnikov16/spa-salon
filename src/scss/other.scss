@@ -19,15 +19,21 @@
   align-items: center;
   text-transform: uppercase;
   color: black;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 16px;
   font-weight: 700;
   text-align: center;
+  @media (max-width: 580px) {
+    font-size: 14px;
+  }
 
   &.btn_girls {
     max-width: 250px;
     height: 60px;
     margin: 55px auto 0;
+    @media (max-width: 580px) {
+      margin-top: 35px;
+    }
   }
 
   &.btn_programms {
@@ -37,9 +43,10 @@
   }
 
   &:hover:not(.tabs__label) {
-    border: 1px solid #ffa360;
+    /* border: 1px solid #ffa360;
     background: #171414;
-    color: white;
+    color: white; */
+    box-shadow: 0px 0px 11px 9px rgba(243, 169, 100, 0.4);
   }
 }
 
@@ -78,10 +85,10 @@
 }
 
 .section {
-  margin: 0 0 70px;
-  @media (max-width: 580px) {
+  margin: 0 0 100px;
+  /*   @media (max-width: 580px) {
     margin: 0 0 50px;
-  }
+  } */
   &:last-child {
     margin: 0;
   }
@@ -116,8 +123,9 @@
 
   &__subtitle {
     font-size: 16px;
-    line-height: 30px;
+    line-height: 25px;
     font-weight: 400;
+    opacity: 0.75;
     text-align: center;
     margin: 0 auto 35px;
     @media (max-width: 1220px) {
@@ -125,7 +133,7 @@
     }
     @media (max-width: 1000px) {
       font-size: calc(14px + (2 + 2 * 0.7) * ((100vw - 375px) / 1000));
-      line-height: calc(22px + (8 + 8 * 0.7) * ((100vw - 375px) / 1000));
+      line-height: calc(22px + (3 + 3 * 0.7) * ((100vw - 375px) / 1000));
     }
   }
 }
@@ -140,7 +148,8 @@
     content: "";
     width: 176px;
     height: 50px;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
 
     @media (max-width: 800px) {
       content: initial;
@@ -182,16 +191,25 @@
 
 .whatsapp {
   background-color: #64b161;
+  &:hover {
+    box-shadow: 0px 0px 11px 9px rgba(113, 209, 109, 0.4);
+  }
 }
 .telegram {
   background: linear-gradient(180deg, #2aabee 0%, #229ed9 99.22%);
+  &:hover {
+    box-shadow: 0px 0px 11px 9px rgba(43, 181, 255, 0.4);
+  }
   svg {
-    width: 20px;
-    height: 20px;
+    width: 23px;
+    height: 23px;
   }
 }
 .viber {
   background: #7d3daf;
+  &:hover {
+    box-shadow: 0px 0px 11px 9px rgba(158, 74, 223, 0.4);
+  }
 }
 
 .page-title-label {
@@ -200,5 +218,31 @@
 
   @media (max-width: 580px) {
     justify-content: flex-start;
+  }
+}
+
+.title-programm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 33px;
+}
+
+.title-programm-container {
+  display: inline-grid;
+  grid-template-columns: 1fr max-content;
+  gap: 20px;
+  align-items: center;
+  h1 {
+    margin-bottom: 0;
+  }
+  ul {
+    padding-bottom: 0;
+  }
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    ul {
+      justify-self: initial;
+    }
   }
 }

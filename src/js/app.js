@@ -104,7 +104,6 @@ if (tabsBlock) {
     const inputs = tabsBlock.querySelectorAll('.tabs__label input')
     const tabs = tabsBlock.querySelectorAll('.tabs__tab')
     const spoiler = tabsBlock.querySelector('.tabs__spoiler span')
-    console.log(labels.length)
     if (labels.length > 2) {
         tabsBlock.classList.add('with_spoiler')
         spoiler.parentNode.addEventListener('click', () => tabsBlock.classList.toggle('open'))
@@ -210,22 +209,18 @@ function init() {
 
 /* Скролл первой акции сториз */
 const firstStock = document.querySelector('.to-stories__item.for-fixed')
+function getCoords(elem) {
+    let box = elem.getBoundingClientRect();
 
+    return {
+        top: Math.ceil(box.top + window.pageYOffset),
+        right: Math.ceil(box.right + window.pageXOffset),
+        bottom: Math.ceil(box.bottom + window.pageYOffset),
+        left: Math.ceil(box.left + window.pageXOffset)
+    };
+}
 if (firstStock) {
-
-
-    function getCoords(elem) {
-        let box = elem.getBoundingClientRect();
-
-        return {
-            top: Math.ceil(box.top + window.pageYOffset),
-            right: Math.ceil(box.right + window.pageXOffset),
-            bottom: Math.ceil(box.bottom + window.pageYOffset),
-            left: Math.ceil(box.left + window.pageXOffset)
-        };
-    }
     let coordinates = getCoords(firstStock)
-    console.log(coordinates)
     const firstStockCopy = firstStock.cloneNode(true)
     firstStockCopy.classList.add('fixed')
     firstStockCopy.querySelector('.to-stories__title').remove()
@@ -379,3 +374,59 @@ class Stories {
 }
 
 const stories = new Stories()
+
+
+/* Высота титульников достоинств одинаковая */
+$(function () {
+    var column = 0;
+    $('.advantage__card h4').each(function () {
+        h = $(this).height();
+        if (h > column) {
+            column = h;
+        }
+    }).height(column);
+});
+
+
+/* Проверка на мобильник */
+const isMobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent);
+if (isMobile) document.querySelector('.footer__mobile').classList.add('show')
+
+
+/* Анимация при скролле */
+const animItems = document.querySelectorAll('._anim-items');
+
+if (animItems.length > 0) {
+    window.addEventListener('scroll', animOnScroll);
+    function animOnScroll() {
+        for (let index = 0; index < animItems.length; index++) {
+            const animItem = animItems[index];
+            const animItemHeight = animItem.offsetHeight;
+            const animItemOffset = offset(animItem).top;
+            const animStart = 4;
+
+            let animItemPoint = window.innerHeight - animItemHeight / animStart;
+            if (animItemHeight > window.innerHeight) {
+                animItemPoint = window.innerHeight - window.innerHeight / animStart;
+            }
+
+            if ((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight)) {
+                animItem.classList.add('_animate');
+            } else {
+                if (!animItem.classList.contains('_anim-no-hide')) {
+                    animItem.classList.remove('_animate');
+                }
+            }
+        }
+    }
+    function offset(el) {
+        const rect = el.getBoundingClientRect(),
+            scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+    }
+
+    setTimeout(() => {
+        animOnScroll();
+    }, 10);
+}

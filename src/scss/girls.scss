@@ -51,9 +51,14 @@
       width: 14px;
       height: 14px;
 
-      @media(max-width: 900px) {
+      @media (max-width: 900px) {
         top: 3px;
       }
+
+      border-radius: 100%;
+      box-shadow: 0 0 0 rgb(227 158 95 / 40%);
+      animation: pulse 2s infinite;
+      
     }
   }
 
@@ -61,6 +66,7 @@
     width: 100%;
     display: block;
     height: 430px;
+    z-index: 100;
 
     @media (max-width: 1220px) {
       height: calc(300px + (130 + 130 * 0.7) * ((100vw - 900px) / 1220));
@@ -111,11 +117,9 @@
     }
   }
 
-  &__swiper .swiper-slide {
+  &__swiper {
     position: relative;
   }
-
-  
 
   &__more {
     display: flex;
@@ -153,10 +157,9 @@
     background: transparent;
     opacity: 1;
     width: 100%;
-    height: 430px;
-    @media (max-width: 1150px) {
-      height: 4px;
-    }
+    height: 4px;
+    background: rgba(196, 196, 196, 0.5);
+
     border-radius: 0;
     cursor: pointer;
     &::after {
@@ -165,18 +168,30 @@
       content: "";
       bottom: 0;
       left: 0;
-      height: 4px;
+      height: 430px;
       width: 100%;
-      background: rgba(196, 196, 196, 0.5);
-      opacity: 1;
-      z-index: -99;
+      opacity: 0;
+      @media (max-width: 1150px) {
+        height: 4px;
+      }
     }
   }
 
   .swiper-pagination-bullet-active {
+    background: #8a3680;
     &::after {
-      background: #8a3680;
-      height: 4px;
     }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(227, 158, 95, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(227, 158, 95, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(227, 158, 95, 0);
   }
 }

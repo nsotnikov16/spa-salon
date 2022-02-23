@@ -3,7 +3,7 @@
   padding: 110px 0 0;
 
   @media (max-width: 580px) {
-    padding: 70px 0 0;
+    padding: 70px 0 50px;
   }
   .page__container {
     display: flex;
@@ -122,12 +122,16 @@
       height: 25px;
     }
   }
-  hr {
-    display: none;
-  }
 
   &__mobile {
     display: none;
+    border-top: 1px solid $orange;
+    background-color: #0f0f0f;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
   }
   @media (max-width: 580px) {
     &__phone,
@@ -138,17 +142,13 @@
       align-items: center;
     }
 
-    hr {
-      display: block;
-      border: 1px solid $orange;
-      width: 100vw;
-      opacity: 0.5;
-    }
     &__mobile {
       padding: 25px 0;
-      display: flex;
       justify-content: center;
       align-items: center;
+      &.show {
+        display: flex;
+      }
       p {
         font-size: 14px;
         line-height: 24px;
