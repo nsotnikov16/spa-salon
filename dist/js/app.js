@@ -390,7 +390,14 @@ $(function () {
 
 /* Проверка на мобильник */
 const isMobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent);
-if (isMobile) document.querySelector('.footer__mobile').classList.add('show')
+if (isMobile) {
+    const footerMobile = document.querySelector('.footer__mobile')
+    window.addEventListener('scroll', () => {
+        const scroll = Math.ceil(window.scrollY)
+        if (scroll >= 400) footerMobile.classList.add('show')
+        if (scroll < 400) footerMobile.classList.remove('show')
+    })
+}
 
 
 /* Анимация при скролле */
