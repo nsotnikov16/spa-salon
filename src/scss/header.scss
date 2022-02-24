@@ -96,7 +96,7 @@
     padding-top: 22px;
     &.open-menu {
       background-color: $background-main;
-      height: 100vh;
+      height: calc(100vh);
       .menu__burger {
         span {
           &:nth-child(1) {

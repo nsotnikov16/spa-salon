@@ -22,6 +22,15 @@
     &:last-child {
       margin-right: 0;
     }
+    &:hover {
+      .menu__link {
+        color: $orange;
+      }
+      &::after,
+      &::before {
+        background-color: $orange;
+      }
+    }
   }
 
   &__link {
@@ -45,6 +54,7 @@
       background-color: white;
       z-index: 2;
       cursor: pointer;
+      transition: transform 0.25s ease-in-out;
     }
 
     &::after {
@@ -66,26 +76,37 @@
         opacity: 1;
         visibility: visible;
       }
+
+      &:not(.header__mobile .menu__item-dropdown) {
+        &::after {
+          transform: rotate(45deg);
+        }
+
+        &::before {
+          transform: rotate(-45deg);
+        }
+      }
     }
   }
 
   &__list-dropdown {
-    padding: 15px;
-    background-color: #fff;
-    border-radius: 6px;
-    min-width: 150px;
+    &:not(.header__mobile .menu__list-dropdown) {
+      padding: 14px 28px;
+      background: #161717;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+      border-radius: 7px;
+    }
   }
-
 
   /* Временно */
   &__expand {
-    display: none !important;
+    /* display: none !important; */
   }
   /* ----- */
 
   &__expand:not(.header__mobile .menu__expand) {
     top: 100%;
-    left: 0;
+    left: -20%;
     padding-top: 15px;
     position: absolute;
     opacity: 0;
@@ -102,10 +123,9 @@
   }
 
   &__link-dropdown {
-    color: black;
     display: block;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 24px;
     width: 100%;
     white-space: nowrap;
@@ -142,6 +162,67 @@
       &:nth-child(3) {
         width: 17px;
         margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.header__mobile {
+  .menu__expand {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease-in-out;
+  }
+  .menu__list-dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 16px 0 0;
+  }
+  .menu__link-dropdown {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  .menu__item-dropdown-li {
+    margin-bottom: 16px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .menu__link {
+    width: 130%;
+  }
+
+  .menu__item-dropdown {
+    &::before,
+    &::after {
+      top: 15px;
+      z-index: -1;
+    }
+
+    &.open {
+      .menu__expand {
+        overflow: initial;
+        max-height: 1000px;
+      }
+      .menu__link {
+        color: $orange;
+        
+      }
+      &::after {
+        transform: rotate(45deg);
+      }
+
+      &::before {
+        transform: rotate(-45deg);
+      }
+      &::before,
+      &::after {
+        background-color: $orange;
+        
       }
     }
   }
