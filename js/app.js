@@ -32,7 +32,7 @@ mobileMenuLinksDropdown.forEach((item, ind, arr) => {
         let heightAllItems = 0
         if (item.parentNode.classList.contains('open')) {
             arr.forEach(el => heightAllItems += el.offsetHeight)
-            headerOpenMenu.style.height = `calc(100vh + ${heightAllItems + 25}px)`
+            headerOpenMenu.style.height = `calc(100vh + ${heightAllItems + 120}px)`
         } else {
             if (Array.from(arr).some(element => !element.parentNode.classList.contains('open'))) headerOpenMenu.style.cssText = ''
         }
