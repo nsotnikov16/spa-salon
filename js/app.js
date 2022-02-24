@@ -18,11 +18,28 @@ const headerMobile = header.querySelector('.header__mobile')
 const headerRight = header.querySelector('.header__right')
 const headerRightCopy = headerRight.cloneNode(true)
 const headerMenuListCopy = header.querySelector('.menu__list').cloneNode(true)
+
 const burger = document.querySelector('.menu__burger')
 
 headerMobile.append(headerMenuListCopy)
 headerMobile.append(headerRightCopy)
 burger.addEventListener('click', () => header.classList.toggle('open-menu'))
+const mobileMenuLinksDropdown = headerMobile.querySelectorAll('.menu__item-dropdown .menu__link')
+mobileMenuLinksDropdown.forEach((item, ind, arr) => {
+    item.addEventListener('click', () => {
+        const headerOpenMenu = document.querySelector('.header.open-menu')
+        item.parentNode.classList.toggle('open')
+        let heightAllItems = 0
+        if (item.parentNode.classList.contains('open')) {
+            arr.forEach(el => heightAllItems += el.offsetHeight)
+            headerOpenMenu.style.height = `calc(100vh + ${heightAllItems + 25}px)`
+        } else {
+            if (Array.from(arr).some(element => !element.parentNode.classList.contains('open'))) headerOpenMenu.style.cssText = ''
+        }
+    })
+})
+
+
 
 let swipers = [];
 
